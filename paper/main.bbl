@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,6 +42,14 @@ S.~Garfinkel, N.~Beebe, L.~Liu, et~al.
   Security (HST)}, pages 81--88, 2013.
 \newblock \doi{10.1109/ths.2013.6698981}.
 
+\bibitem[Homoliak et~al.(2018)Homoliak, Toffalini, Guarnizo,
+  et~al.]{homoliak2018insight}
+I.~Homoliak, F.~Toffalini, J.~Guarnizo, et~al.
+\newblock Insight into insiders and it: A survey of insider threat taxonomy,
+  detection, and defense.
+\newblock \emph{arXiv preprint arXiv:1805.01612}, 2018.
+\newblock URL \url{http://arxiv.org/abs/1805.01612}.
+
 \bibitem[Kurniawan et~al.(2022)Kurniawan, Ekelhart, Kiesling,
   et~al.]{kurniawan2022krystal}
 K.~Kurniawan, A.~Ekelhart, E.~Kiesling, et~al.
@@ -50,8 +58,15 @@ K.~Kurniawan, A.~Ekelhart, E.~Kiesling, et~al.
 \newblock \emph{Computers \& Security}, 120:\penalty0 102828, 2022.
 \newblock \doi{10.1016/j.cose.2022.102828}.
 
-\bibitem[Le and Zincir-Heywood(2020)]{le2020analyzing}
+\bibitem[Le and Zincir-Heywood(2019)]{le2019machine}
 D.C. Le and A.N. Zincir-Heywood.
+\newblock Machine learning based insider threat modelling and detection.
+\newblock In \emph{IEEE International Conference on Communications (ICC)},
+  pages 1--6, 2019.
+\newblock URL \url{http://ieeexplore.ieee.org/document/8717892}.
+
+\bibitem[Le et~al.(2020)Le, Zincir-Heywood, and Heywood]{le2020analyzing}
+D.C. Le, A.N. Zincir-Heywood, and M.I. Heywood.
 \newblock Analyzing data granularity levels for insider threat detection using
   machine learning.
 \newblock \emph{IEEE Transactions on Network and Service Management},
@@ -72,6 +87,23 @@ Z.~Li, Q.A. Chen, R.~Yang, et~al.
   graphs: a survey.
 \newblock \emph{Computers \& Security}, 106:\penalty0 102282, 2021.
 \newblock \doi{10.1016/j.cose.2021.102282}.
+
+\bibitem[Mavroeidis et~al.(2018)Mavroeidis, Vishi, and
+  J{\o}sang]{mavroeidis2018framework}
+V.~Mavroeidis, K.~Vishi, and A.~J{\o}sang.
+\newblock A framework for data-driven physical security and insider threat
+  detection.
+\newblock In \emph{IEEE/ACM International Conference on Advances in Social
+  Networks Analysis and Mining (ASONAM)}, pages 850--857, 2018.
+\newblock \doi{10.1109/asonam.2018.8508599}.
+
+\bibitem[Mitra et~al.(2021)Mitra, Piplai, Mittal, et~al.]{mitra2021combating}
+S.~Mitra, A.~Piplai, S.~Mittal, et~al.
+\newblock Combating fake cyber threat intelligence using provenance in
+  cybersecurity knowledge graphs.
+\newblock In \emph{IEEE International Conference on Big Data}, pages 967--976,
+  2021.
+\newblock \doi{10.1109/bigdata52589.2021.9671867}.
 
 \bibitem[Ren et~al.(2022)Ren, Xiao, Zhou, et~al.]{ren2022cskg4apt}
 Y.~Ren, Y.~Xiao, Y.~Zhou, et~al.
