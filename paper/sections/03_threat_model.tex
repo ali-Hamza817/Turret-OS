@@ -2,16 +2,16 @@
 
 \subsection{Adversary Profiles}
 
-TURRET OS evaluates adversary profiles across two corpora. On the established CERT-style insider-threat lineage corpus (D3 TSEC), the embedded adversary baseline consists of five synthetic insider scenarios generated over 500 users, 365 days, and 141,657 user-day activity records, with a 1.68\% positive rate \citep{wei2024ewatcher, xiao2024sentinel, gao2023dtgi}. On the 35-user, 90-day D5 Synthetic-Tenant Pilot (2,431 activity records), a held-out \texttt{OOD\_LAB\_EXFILTRATOR} profile is injected into the generator without appearing in the training split; this deliberately out-of-distribution scenario functions as a true hold-out evaluation. Across both corpora, four canonical attacker models anchor the adversarial evaluation track: Mimicry, Metadata-Strip, Identity-Proxy (\texttt{GHOST\_AUTHOR}), and OOD Credential-Phishing. The OOD Credential-Phishing adversary operates during business hours using stolen credentials with low feature novelty, identity-proxy reuse, and removable-media transfers, representing the regime in which classical novelty-driven insider detectors collapse.
+\textbf{TURRET OS} evaluates adversary profiles across two corpora. On the established CERT-style insider-threat lineage corpus (D3 TSEC), the embedded adversary baseline consists of five synthetic insider scenarios generated over 500 users, 365 days, and 141,657 user-day activity records, with a 1.68\% positive rate \citep{wei2024ewatcher, xiao2024sentinel, gao2023dtgi}. On the 35-user, 90-day D5 Synthetic-Tenant Pilot (2,431 activity records), a held-out \texttt{OOD\_LAB\_EXFILTRATOR} profile is injected into the generator without appearing in the training split; this deliberately out-of-distribution scenario functions as a true hold-out evaluation. Across both corpora, four canonical attacker models anchor the adversarial evaluation track: Mimicry, Metadata-Strip, Identity-Proxy (\texttt{GHOST\_AUTHOR}), and OOD Credential-Phishing. The OOD Credential-Phishing adversary operates during business hours using stolen credentials with low feature novelty, identity-proxy reuse, and removable-media transfers, representing the regime in which classical novelty-driven insider detectors collapse.
 
 \begin{table*}[htbp]
 \caption{Adversary Profile Catalogue across Evaluation Corpora and Attacker Models.}
 \label{tab:adversary_catalogue}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
-\setlength{\tabcolsep}{5pt}
-\begin{tabularx}{\textwidth}{l X X X l}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{p{2.2cm} X p{2.6cm} p{4.0cm} p{4.0cm}}
 \toprule
 \textbf{Profile ID} & \textbf{Population / Split} & \textbf{Profile Type} & \textbf{Operational Regime} & \textbf{Notation in Evaluation} \\
 \midrule
@@ -34,7 +34,7 @@ Four evasion strategies are exercised. Mimicry approximates benign-feature distr
 \label{tab:attack_evasion_matrix}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.25}
 \setlength{\tabcolsep}{6pt}
 \begin{tabularx}{\textwidth}{l X X X c}
 \toprule
@@ -57,7 +57,7 @@ Detection must be coupled to a forensic-evidence chain admissible under ISO/IEC 
 \label{tab:iso27043_mapping}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{6pt}
 \begin{tabularx}{\textwidth}{l X X c}
 \toprule

@@ -1,13 +1,6 @@
-\section{TURRET OS Architecture}
+\section{\textbf{TURRET OS} Architecture}
 
 The pipeline has four logically distinct layers plus a multi-layer joint-inference stage. Each layer is independently testable and contributes a clearly bounded signal into both the anomaly score and the forensic-evidence bundle.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\linewidth]{figures/fig1_architecture.pdf}
-\caption{TURRET OS Four-Layer Architecture (with Joint Inference).}
-\label{fig:architecture}
-\end{figure}
 
 \subsection{Layer 1: Cross-Format Metadata Harvest}
 
@@ -41,7 +34,7 @@ A multi-layer GraphSAGE trained jointly on L1 features (twelve columns) and L2 g
 
 \subsection{Layer 4: W3C-PROV-Aligned Evidence Packaging}
 
-Takes (\text{L3.5 score}, \text{L1 feature row}, \text{L3 fired rules}, \text{L2 subgraph}) and emits a tamper-evident pack per alert: (\texttt{Alert-UID}, \texttt{Provenance-Bundle}, \texttt{Merkle-Root}, \texttt{Digest-Hash}, \texttt{Signed-Merkle-Root}, \texttt{Ed25519-Signature-Public-Key}, \texttt{Audit-Trail-Reference}, \texttt{Operator-Identity}) rendered as a W3C PROV document and audit-workbench export \citep{aki2025provenance, li2021threat, mavroeidis2018framework, shoderu2025dfrsaas, yusof2025provcon}. SHA-256 and BLAKE3 hashing anchor chain of custody; Ed25519 over the Merkle root provides cryptographic integrity verification. The cumulative evidence is committed to PROV using PROVCON-style record types, providing a portable container for analyst inspection \citep{shoderu2025dfrsaas, yusof2025provcon}.
+Takes (\text{L3.5 score}, \text{L1 feature row}, \text{L3 fired rules}, \text{L2 subgraph}) and emits a tamper-evident pack per alert containing: \texttt{Alert-UID}, \texttt{Provenance-Bundle}, \texttt{Merkle-Root}, \texttt{Digest-Hash}, \texttt{Signed-Merkle-Root}, \allowbreak \texttt{Ed25519-Signature-Public-Key}, \allowbreak \texttt{Audit-Trail-Reference}, and \texttt{Operator-Identity}, rendered as a W3C PROV document and audit-workbench export \citep{aki2025provenance, li2021threat, mavroeidis2018framework, shoderu2025dfrsaas, yusof2025provcon}. SHA-256 and BLAKE3 hashing anchor chain of custody; Ed25519 over the Merkle root provides cryptographic integrity verification. The cumulative evidence is committed to PROV using PROVCON-style record types, providing a portable container for analyst inspection \citep{shoderu2025dfrsaas, yusof2025provcon}.
 
 \subsection{Multi-Layer Joint Inference}
 
