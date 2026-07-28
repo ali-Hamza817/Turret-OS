@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-28 09:32:02 UTC",
+  "timestamp": "2026-07-28 09:53:19 UTC",
   "hardware_environment": {
     "python_version": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:56:27) [GCC 11.2.0]",
     "platform": "Linux-6.8.0-94-generic-x86_64-with-glibc2.39",
@@ -14,10 +14,10 @@
     "n_records": 141725,
     "n_test_samples": 21259,
     "timings": {
-      "data_load_sec": 0.3487,
-      "feature_matrix_sec": 0.0463,
-      "model_train_calibration_sec": 41.8122,
-      "inference_evaluation_sec": 1.017
+      "data_load_sec": 0.3353,
+      "feature_matrix_sec": 0.0524,
+      "model_train_calibration_sec": 42.7394,
+      "inference_evaluation_sec": 1.0988
     }
   }
 }

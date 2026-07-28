@@ -44,14 +44,22 @@ def generate_d5_tenant(
     # Users
     users = []
     for i in range(n_users):
-        is_insider = (i in (7, 22))  # User 7 and User 22 are tagged insiders
+        is_insider = (i in (7, 22, 31))  # User 7, 22, and 31 (OOD heldout profile)
+        prof = None
+        if i == 7:
+            prof = "GHOST_AUTHOR"
+        elif i == 22:
+            prof = "CLEANER"
+        elif i == 31:
+            prof = "OOD_LAB_EXFILTRATOR"
+
         users.append({
             "user_id": f"U_TENANT_{i:03d}",
             "department": rng.choice(DEPARTMENTS),
             "max_clearance": CLEARANCE_LEVELS[min(i % 5, 4)],
             "clearance_idx": min(i % 5, 4),
             "hire_date": "2024-03-15",
-            "adversarial_profile": "GHOST_AUTHOR" if i == 7 else ("CLEANER" if i == 22 else None),
+            "adversarial_profile": prof,
             "is_malicious": is_insider,
         })
     users_df = pd.DataFrame(users)
@@ -93,6 +101,11 @@ def generate_d5_tenant(
                     outbound_email = True
                     off_hours_mult = 2.2
                     access_hour = int(rng.integers(1, 6))
+                elif profile == "OOD_LAB_EXFILTRATOR":
+                    removable_copy = bool(rng.random() < 0.80)
+                    outbound_email = bool(rng.random() < 0.60)
+                    novelty = float(rng.normal(1.8, 0.3))
+                    access_hour = int(rng.integers(13, 17))
 
             activities.append({
                 "user_id": user["user_id"],

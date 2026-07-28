@@ -63,12 +63,16 @@ class SHAPExplainer:
         if isinstance(shap_vals, list) and len(shap_vals) == 2:
             shap_vals = shap_vals[1]
 
+        exp_val = self._explainer.expected_value
+        if isinstance(exp_val, (list, np.ndarray)):
+            base_val = float(np.atleast_1d(exp_val)[-1])
+        else:
+            base_val = float(exp_val)
+
         return {
             "shap_values": np.array(shap_vals),
             "feature_names": self.feature_names,
-            "base_value": float(self._explainer.expected_value
-                                if not isinstance(self._explainer.expected_value, list)
-                                else self._explainer.expected_value[1]),
+            "base_value": base_val,
         }
 
     def compute_fidelity(

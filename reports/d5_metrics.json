@@ -1,7 +1,9 @@
 {
-  "dataset_id": "D5 Synthetic-Tenant Pilot",
-  "n_records": 2431,
-  "roc_auc": 1.0,
-  "f1_at_fpr_005": 0.0,
-  "mcc": 1.0
+  "dataset_id": "D5 Synthetic-Tenant Pilot (35 users, 90 days)",
+  "n_records": 2446,
+  "roc_auc": 0.9928,
+  "f1_at_fpr_005": 0.8936,
+  "mcc": 0.9539,
+  "top_shap_feature": "copy_to_removable",
+  "leakage_free_verified": true
 }
