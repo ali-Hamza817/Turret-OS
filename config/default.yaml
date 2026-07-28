@@ -1,0 +1,93 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  TURRET OS — Default Configuration
+# ═══════════════════════════════════════════════════════════════════════════
+
+neo4j:
+  uri: "${NEO4J_URI}"
+  user: "${NEO4J_USER}"
+  password: "${NEO4J_PASSWORD}"
+  database: "turret"
+  batch_size: 5000                  # records per APOC batch load
+
+harvest:
+  supported_formats:
+    - docx
+    - xlsx
+    - pptx
+    - pdf
+    - dwg
+    - eml
+    - git-commit
+    - sharepoint
+    - teams
+    - jpeg
+    - png
+    - tiff
+  tika:
+    server_jar: "${TIKA_SERVER_JAR}"
+    timeout_sec: 30
+  exiftool:
+    path: "${EXIFTOOL_PATH}"
+  max_file_size_mb: 512
+  output:
+    parquet_compression: "snappy"
+    partition_by: ["format", "classifier"]
+
+graph:
+  prov_context: "https://www.w3.org/ns/prov"
+  prov_output_dir: "data/processed/prov_jsonld"
+  apoc_batch_size: 5000
+
+detection:
+  rules_config: "config/espionage_rules.yaml"
+  gnn:
+    model: "graphsage_time2vec"
+    hidden_dim: 256
+    num_layers: 3
+    time2vec_dim: 64
+    temporal_heads: 4
+    dropout: 0.3
+    focal_alpha: 0.25
+    focal_gamma: 2.0
+    epochs: 60
+    lr: 0.001
+    weight_decay: 1.0e-5
+    batch_size: 512
+    eval_every: 5
+    device: "auto"               # "cuda" | "cpu" | "auto"
+    checkpoint_dir: "models/checkpoints"
+  evaluation:
+    fpr_thresholds: [0.001, 0.005, 0.01]
+    n_seeds: 5
+    seeds: [42, 43, 44, 45, 46]
+    test_split: 0.15
+    val_split: 0.15
+
+evidence:
+  signing_key_path: "${SIGNING_KEY_PATH}"
+  verify_key_path: "${VERIFY_KEY_PATH}"
+  output_dir: "evidence_packs"
+  hash_algorithm: "sha256"       # sha256 | blake3
+  iso27043_attributes:
+    - identification
+    - collection
+    - acquisition
+    - preservation
+    - analysis
+    - presentation
+    - chain_of_custody
+    - integrity_verification
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  allowed_origins: "${ALLOWED_ORIGINS}"
+  rate_limit: "100/minute"
+  max_subgraph_depth: 4
+
+logging:
+  level: "${LOG_LEVEL}"
+  format: "json"
+  file: "logs/turret.log"
+  max_bytes: 10485760            # 10 MB
+  backup_count: 5

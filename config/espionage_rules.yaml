@@ -1,0 +1,150 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  TURRET OS — Espionage Rule Engine Configuration
+#  8 rules, each with weight, threshold, and metadata for paper citation.
+#  Rules are evaluated as weighted boolean AST; score = sum(weight * triggered)
+# ═══════════════════════════════════════════════════════════════════════════
+
+version: "1.0"
+scoring:
+  alert_threshold: 0.35          # normalised score ∈ [0,1]
+  window_hours: 24               # sliding window for aggregation
+
+rules:
+
+  - id: CLEARANCE_VIOLATION
+    name: "Clearance Level Violation"
+    description: >
+      User accesses files classified at a level strictly above their
+      current security clearance. Strongest single indicator of espionage
+      probing behaviour per TSEC profile analysis.
+    weight: 0.30
+    threshold: 1                  # minimum occurrences in window to trigger
+    condition:
+      type: "threshold"
+      field: "file.classifier"
+      operator: "above_clearance"
+      user_clearance_field: "user.max_clearance"
+    severity: "critical"
+
+  - id: COMFORT_ZONE_BREACH
+    name: "Comfort Zone Breach"
+    description: >
+      User accesses files or directories outside their historical access
+      pattern (beyond 3σ from baseline centroid in access-space).
+      Adapted from the CERT r6.2 behavioural baseline methodology.
+    weight: 0.20
+    threshold: 3
+    condition:
+      type: "statistical"
+      method: "zscore"
+      field: "access_novelty_score"
+      sigma_threshold: 3.0
+    severity: "high"
+
+  - id: AFTER_HOURS_SPIKE
+    name: "After-Hours Activity Spike"
+    description: >
+      Significant increase in file access volume outside business hours
+      (before 07:00 or after 19:00 local time). Weight derived from
+      CERT insider threat scenario analysis.
+    weight: 0.10
+    threshold: 1
+    condition:
+      type: "temporal"
+      hours_outside: [0, 7, 19, 24]
+      activity_multiplier: 2.5    # x times above mean off-hours baseline
+    severity: "medium"
+
+  - id: IDENTITY_PROXY
+    name: "Identity Proxy / Shared-Account Access"
+    description: >
+      Session authenticated as user A but file revision metadata contains
+      author strings inconsistent with A. Targets ghost-authorship and
+      account-sharing espionage tradecraft.
+    weight: 0.25
+    threshold: 1
+    condition:
+      type: "metadata_mismatch"
+      fields:
+        - session_user: "auth_chain.signed_by_user"
+        - doc_author: "tika_xdm.dc:creator"
+        - last_modifier: "tika_xdm.cp:lastModifiedBy"
+    severity: "critical"
+
+  - id: PRINT_TO_NON_SECRET_DEVICE
+    name: "Print to Non-Cleared Device"
+    description: >
+      Secret/TS-classified document sent to a printer device not
+      registered for that clearance level. High-fidelity exfiltration
+      indicator; low false-positive rate.
+    weight: 0.20
+    threshold: 1
+    condition:
+      type: "device_clearance"
+      action: "print"
+      file_classifier: ["secret", "ts", "ts_sci"]
+      device_clearance_required: true
+    severity: "high"
+
+  - id: LARGE_OOXML_OUTBOUND
+    name: "Large OOXML File Outbound"
+    description: >
+      OOXML file (DOCX/XLSX/PPTX) of size > configured threshold sent
+      outside the organisational boundary via email or upload channel.
+      Targets bulk data exfiltration via document containers.
+    weight: 0.15
+    threshold: 1
+    condition:
+      type: "compound"
+      all:
+        - field: "format"
+          operator: "in"
+          values: ["docx", "xlsx", "pptx"]
+        - field: "size_bytes"
+          operator: "gt"
+          value: 10485760          # 10 MB
+        - field: "edge.type"
+          operator: "in"
+          values: ["EMAILED_TO", "UPLOADED_TO"]
+        - field: "edge.dst.external"
+          operator: "eq"
+          value: true
+    severity: "high"
+
+  - id: COPY_TO_REMOVABLE_AT_BADGE
+    name: "Removable Media Copy at Badge Event"
+    description: >
+      File copied to removable media within 30 minutes of a physical
+      badge-access event (entry/exit). Correlates cyber and physical
+      intelligence for espionage-grade insider detection.
+    weight: 0.20
+    threshold: 1
+    condition:
+      type: "temporal_correlation"
+      event_a:
+        type: "file_event"
+        action: "copy_to_removable"
+      event_b:
+        type: "physical_badge"
+        action: ["entry", "exit"]
+      max_gap_minutes: 30
+    severity: "critical"
+
+  - id: METADATA_STRIP
+    name: "Metadata Stripping Before Exfiltration"
+    description: >
+      File metadata (author, revision history, GPS, timestamps) is
+      systematically removed from a document immediately before outbound
+      transfer. Strongly indicates pre-exfiltration cleaning tradecraft.
+      Targets the CLEANER adversarial profile in TSEC.
+    weight: 0.25
+    threshold: 1
+    condition:
+      type: "metadata_delta"
+      before_fields: ["tika_xdm.dc:creator", "exif.GPS*", "tika_xdm.cp:revision"]
+      after_fields: ["tika_xdm.dc:creator", "exif.GPS*", "tika_xdm.cp:revision"]
+      null_after_nonnull_before: true
+      followed_by:
+        edge_type: ["EMAILED_TO", "UPLOADED_TO"]
+        within_minutes: 60
+    severity: "critical"

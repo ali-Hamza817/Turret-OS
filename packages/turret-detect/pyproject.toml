@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "turret-detect"
+version = "0.1.0"
+description = "TURRET OS — L3 detection layer: rules, GNN, explainability"
+authors = ["TURRET OS Research Team"]
+packages = [{include = "turret_detect"}]
+
+[tool.poetry.dependencies]
+python         = "^3.11"
+turret-common  = {path = "../turret-common", develop = true}
+torch          = {version = "==2.3.1", source = "pytorch-cpu"}
+torch-geometric = "==2.5.3"
+shap           = "==0.46.0"
+scikit-learn   = "==1.5.1"
+numpy          = "==1.26.4"
+pandas         = "==2.2.2"
+pyarrow        = "==16.1.0"
+duckdb         = "==0.10.3"
+scipy          = "==1.13.1"
+statsmodels    = "==0.14.2"
+pyyaml         = "==6.0.2"
+click          = "==8.1.7"
+rich           = "==13.7.1"
+
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url  = "https://download.pytorch.org/whl/cpu"
+priority = "supplemental"
+
+[build-system]
+requires      = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

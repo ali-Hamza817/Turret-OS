@@ -1,0 +1,30 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    exiftool \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Poetry
+RUN pip install --no-cache-dir poetry==1.8.3
+
+# Copy dependency files
+COPY pyproject.toml poetry.lock* ./
+COPY packages/ ./packages/
+
+# Install dependencies (no dev)
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi --no-dev
+
+# Copy application code
+COPY apps/ ./apps/
+COPY config/ ./config/
+
+ENV PYTHONPATH=/app
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8000

@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+.venv/
+venv/
+env/
+*.so
+*.dylib
+
+# Poetry
+.poetry/
+
+# Environment
+.env
+*.env.local
+
+# Data (large files)
+data/raw/*
+data/processed/*.parquet
+data/processed/*.duckdb
+data/graph_snapshots/*.dump
+models/checkpoints/*.pt
+models/checkpoints/*.pth
+evidence_packs/*.zip
+
+# Node / UI
+apps/ui/node_modules/
+apps/ui/dist/
+apps/ui/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports (generated)
+reports/*.png
+reports/*.pdf
+reports/*.csv
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Neo4j data volumes
+infra/neo4j/data/
+infra/neo4j/logs/
+infra/neo4j/import/
+infra/neo4j/plugins/
