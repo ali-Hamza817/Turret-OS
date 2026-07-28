@@ -1,0 +1,9 @@
+{
+  "dataset_id": "D5 Internal Tenant Pilot",
+  "n_users": 35,
+  "n_days": 90,
+  "n_activity_records": 2431,
+  "n_malicious_users": 2,
+  "n_malicious_days": 62,
+  "positive_rate": 0.0255
+}
