@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\setstretch{1.15}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Ali Hamza} (Corresponding Author) \\
+National University of Sciences and Technology (NUST) \\
+Islamabad, Pakistan \\
+Email: \href{mailto:ahamza.msse25mcs@student.nust.edu.pk}{ahamza.msse25mcs@student.nust.edu.pk} \\
+ORCID: \href{https://orcid.org/0009-0006-9790-6643}{0009-0006-9790-6643} \\[1.5em]
+
+\today \\[1.5em]
+
+\textbf{To:} \\
+The Editor-in-Chief \\
+\textit{Computers \& Security} (Elsevier) \\[1.5em]
+
+\textbf{Subject: Submission of Original Research Article titled "TURRET OS: Multi-Layered Graph and Rule-AST Architecture Rescuing Insider Threat Detection Against Out-of-Distribution Adversaries"} \\[1.5em]
+
+Dear Editor-in-Chief,
+
+We are pleased to submit our original research manuscript titled \textbf{"TURRET OS: Multi-Layered Graph and Rule-AST Architecture Rescuing Insider Threat Detection Against Out-of-Distribution Adversaries"} for consideration for publication as a full research article in \textit{Computers \& Security}.
+
+\paragraph{Context and Problem Formulation:}
+Insider threats remain one of the most critical security risks facing modern enterprise networks. Current machine-learning detectors rely heavily on single-layer feature novelty or off-hours behavioral anomalies. Consequently, they collapse when encountering out-of-distribution (OOD) credential-phishing adversaries operating during business hours with stolen credentials, low feature novelty, and removable-media transfers. Furthermore, existing detection platforms emit isolated machine-learning alerts that fail courtroom admissibility standards due to missing evidence chains.
+
+\paragraph{Key Contributions of TURRET OS:}
+This manuscript presents \textbf{TURRET OS}, a four-layer joint-inference architecture that solves both challenges jointly:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Cross-Format Metadata Extraction (L1)}: Ingests 10 document and telemetry formats (OOXML, DOCX, XLSX, PPTX, PDF, DWG, EML, EPIC, Bitmap images, Git commits) to extract 12 derived feature columns and maintain a raw evidence ledger.
+    \item \textbf{Provenance Knowledge Graph (L2)}: Materialises telemetry into a Neo4j knowledge graph adhering to W3C-PROV relational constraints.
+    \item \textbf{Grammar-Driven Rule-AST Engine (L3)}: Evaluates 8 espionage rule families (R1--R8) in-tree at millisecond latency.
+    \item \textbf{Multi-Layer GraphSAGE Fusion (L3.5)}: Combines L1 metadata with L2 graph topology under isotonic calibration and a runtime SHAP whitelist safety invariant that guarantees zero label leakage at deployment.
+    \item \textbf{ISO/IEC 27043 Digital Forensic Readiness (L4)}: Emits Ed25519-signed W3C-PROV evidence packs with dual SHA-256 + BLAKE3 hashing over Merkle roots, achieving 100\% attribute coverage across all 8 forensic-readiness attributes.
+\end{enumerate}
+
+\paragraph{Experimental Highlights:}
+On the reproducible D3 TSEC benchmark (500 users, 365 days, 141k records), TURRET OS achieves \textbf{ROC-AUC 0.9997}, \textbf{F1@0.5\% FPR of 0.8774}, and \textbf{MCC 0.9770}. On the held-out D5 Synthetic-Tenant Pilot under an unobserved OOD exfiltrator, TURRET OS reports \textbf{ROC-AUC 0.9928} and \textbf{F1 0.8936}. Most importantly, under the OCC-CP credential-phishing attack, TURRET OS rescues single-layer detectors from a 26.25\% collapse down to a 4.12\% drop (within our $\le 5\%$ robustness bound), representing a \textbf{+22.09\% AUC architectural rescue}.
+
+\paragraph{Declarations:}
+This manuscript represents original work that has not been published previously and is not currently under consideration for publication elsewhere. All authors have reviewed and approved the manuscript for submission. There are no competing financial or personal interests to declare.
+
+We believe that \textit{Computers \& Security} is the ideal journal for this work given its audience of cybersecurity researchers, practitioners, and forensic specialists.
+
+Thank you very much for considering our manuscript.
+
+\vspace{1.5em}
+Sincerely, \\[1.5em]
+
+\textbf{Ali Hamza}$^{1,*}$ and \textbf{Ghulam Mujtaba}$^2$ \\
+$^1$ National University of Sciences and Technology (NUST), Islamabad, Pakistan \\
+$^2$ Department of Computer Science, FAST-NUCES, Islamabad, Pakistan \\
+$^*$ Corresponding author email: \href{mailto:ahamza.msse25mcs@student.nust.edu.pk}{ahamza.msse25mcs@student.nust.edu.pk}
+
+\end{flushleft}
+
+\end{document}
