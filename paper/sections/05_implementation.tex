@@ -1,4 +1,5 @@
 \section{Implementation}
+\label{sec:implementation}
 
 \subsection{Stack and Hardware Environment}
 
@@ -43,7 +44,7 @@ A multi-layer GraphSAGE with three \texttt{SAGEConv} layers and a final linear c
 
 \subsection{Calibration and Threshold Optimisation}
 
-Output scores are calibrated via \texttt{CalibratedClassifierCV(method="isotonic", cv=3)}, and operating thresholds are swept on the validation split using Youden's J statistic. The precision-critical constraint is F1 at 0.5\% FPR; the deployment-mode threshold is pinned at the 0.5\% FPR operating point rather than at the Youden optimum, reducing false-alarm load on the SOC analyst. The runtime applies the threshold in the alert-emission step of Phase A in \S4.6.
+Output scores are calibrated via \texttt{CalibratedClassifierCV\allowbreak(method="isotonic", \allowbreak cv=3)}, and operating thresholds are swept on the validation split using Youden's J statistic. The precision-critical constraint is F1 at 0.5\% FPR; the deployment-mode threshold is pinned at the 0.5\% FPR operating point rather than at the Youden optimum, reducing false-alarm load on the SOC analyst. The runtime applies the threshold in the alert-emission step of Phase A in \S\ref{sec:architecture}.
 
 \subsection{Runtime Safety Invariant}
 
