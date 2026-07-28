@@ -2,20 +2,20 @@
 
 \subsection{Datasets}
 
-\textbf{TURRET OS} is evaluated on three corpora with distinct provenance histories. D5 Synthetic-Tenant Pilot (primary operational regime): a purpose-built anonymised enterprise corpus of 35 users $\times$ 90 days $\times$ 2,431 activity records, harvested by the \textbf{TURRET OS} Layer-1 cross-format pipeline, validated and proactively tagged by Security Operations analysts, with \texttt{OOD\_LAB\_EXFILTRATOR} injected into the generator without appearing in the training split (i.e. a true held-out regime). D3 TSEC (reproducible comparison regime): a 500-user $\times$ 365-day corpus yielding 141,657 user-day activity records with a 1.68\% positive rate, drawn from the publicly available TSEC insider-threat lineage so the calibrated single-layer and multi-layer figures can be compared against the published baselines \citep{gao2023dtgi, li2023tgcnda, xiao2024sentinel, xiao2022robust}. D1/D2 CERT (deferred public comparison): D1 (CERT r4.2) and D2 (CERT r5.2) require the SEI Data Use Agreement; their inclusion is permitted after the research-access request is granted. Until then, the public-comparison window keeps D3 TSEC as the primary track, in line with the Graebel protocol \citep{mavroeidis2018framework}.
+\textbf{TURRET OS} is evaluated on three corpora with distinct provenance histories. D5 Synthetic-Tenant Pilot (primary operational regime): a purpose-built anonymised enterprise corpus of 35 users $\times$ 90 days $\times$ 2,431 activity records, harvested by the \textbf{TURRET OS} Layer-1 cross-format pipeline, validated and proactively tagged by Security Operations analysts, with \texttt{OOD\_\allowbreak LAB\_\allowbreak EXFILTRATOR} injected into the generator without appearing in the training split (i.e. a true held-out regime). D3 TSEC (reproducible comparison regime): a 500-user $\times$ 365-day corpus yielding 141,657 user-day activity records with a 1.68\% positive rate, drawn from the publicly available TSEC insider-threat lineage so the calibrated single-layer and multi-layer figures can be compared against the published baselines \citep{gao2023dtgi, li2023tgcnda, xiao2024sentinel, xiao2022robust}. D1/D2 CERT (deferred public comparison): D1 (CERT r4.2) and D2 (CERT r5.2) require the SEI Data Use Agreement; their inclusion is permitted after the research-access request is granted. Until then, the public-comparison window keeps D3 TSEC as the primary track, in line with the Graebel protocol \citep{mavroeidis2018framework}.
 
 \subsection{Detection Performance Against Published Baselines}
 
-On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned to the 0.5\% FPR operating regime, the full-stack \textbf{TURRET OS} detector reports ROC-AUC 0.9997, F1@0.5\% FPR 0.8774, MCC 0.9770. These figures exceed the published baselines surveyed in Section 2: PS0 \citep{le2019machine, le2020analyzing} at ROC-AUC 0.92, F1 0.88, TTD 14 minutes; MEWRGNN at ROC-AUC 0.94, F1 0.87 \citep{xiao2022robust}; DTGI at ROC-AUC 0.91, F1 0.86 \citep{gao2023dtgi}; TGCN-DA at ROC-AUC 0.95, F1 0.89 \citep{li2023tgcnda}; and SENTINEL at ROC-AUC 0.93, F1 0.88 \citep{xiao2024sentinel}. On the D5 \texttt{OOD\_LAB\_EXFILTRATOR} held-out profile, full-stack \textbf{TURRET OS} reports ROC-AUC 0.9928, F1 0.8936, MCC 0.9539. This is the first reproduction-grade multi-layer figure reported on a synthetic tenant corpus and uniquely ties the operating threshold to F1 at 0.5\% FPR, establishing a precision-critical deployability regime absent from prior benchmark protocols.
+On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned to the 0.5\% FPR operating regime, the full-stack \textbf{TURRET OS} detector reports ROC-AUC 0.9997, F1@0.5\% FPR 0.8774, MCC 0.9770. These figures exceed the published baselines surveyed in Section 2: PS0 \citep{le2019machine, le2020analyzing} at ROC-AUC 0.92, F1 0.88, TTD 14 minutes; MEWRGNN at ROC-AUC 0.94, F1 0.87 \citep{xiao2022robust}; DTGI at ROC-AUC 0.91, F1 0.86 \citep{gao2023dtgi}; TGCN-DA at ROC-AUC 0.95, F1 0.89 \citep{li2023tgcnda}; and SENTINEL at ROC-AUC 0.93, F1 0.88 \citep{xiao2024sentinel}. On the D5 \texttt{OOD\_\allowbreak LAB\_\allowbreak EXFILTRATOR} held-out profile, full-stack \textbf{TURRET OS} reports ROC-AUC 0.9928, F1 0.8936, MCC 0.9539. This is the first reproduction-grade multi-layer figure reported on a synthetic tenant corpus and uniquely ties the operating threshold to F1 at 0.5\% FPR, establishing a precision-critical deployability regime absent from prior benchmark protocols.
 
 \begin{table*}[htbp]
 \caption{Detection Performance vs Published Baselines across Evaluation Tracks.}
 \label{tab:detection_performance}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.25}
 \setlength{\tabcolsep}{6pt}
-\begin{tabularx}{\textwidth}{l l X c c c c c}
+\begin{tabularx}{\textwidth}{l X X c c c c c}
 \toprule
 \textbf{Method} & \textbf{Corpus} & \textbf{Split} & \textbf{ROC-AUC} & \textbf{F1} & \textbf{MCC} & \textbf{F1@0.5\%FPR} & \textbf{TTD (min)} \\
 \midrule
@@ -46,15 +46,15 @@ SENTINEL \citep{xiao2024sentinel} & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88
 
 \subsection{Layer Ablation Study and Leakage Audit}
 
-A controlled ablation study removes each layer in turn and re-trains a Chrono60-30-10 model on D5. Full stack reaches ROC-AUC 0.9928, F1@0.5\% FPR 0.8936, MCC 0.9539. No metadata harvest (drop L1): $+8.6\%$ AUC drop and $-41.0\%$ F1 collapse at 0.5\% FPR, confirming that the cross-format metadata layer is the primary signal anchor against OOD adversary profiles. No graph topology (drop L2): $+1.4\%$ AUC drop and $-13.9\%$ F1 collapse, confirming that topology contributes a smaller but non-zero incremental lift. No rule AST (drop L3): $+3.2\%$ AUC drop and $-22.5\%$ F1 collapse, confirming that rules continue to carry semantic weight beyond the GNN prediction. No multi-layer fusion (drop L3.5): reverts to a single-layer feature detector that collapses to ROC-AUC 0.7363 with a 26.25\% drop under the OOD credential-phishing attacker. After every ablation the runtime safety invariant re-checks the top-5 SHAP feature importances against the operational whitelist (\texttt{access\_novelty\_score}, \texttt{metadata\_stripped}, \allowbreak \texttt{off\_hours\_multiplier}, \allowbreak \texttt{identity\_proxy}, \allowbreak \texttt{copy\_to\_removable}, \allowbreak \texttt{n\_file\_accesses}, \allowbreak \texttt{outbound\_email}, \texttt{access\_hour}); on D5 the dominant feature is \texttt{copy\_to\_removable}, sitting in the whitelist and therefore confirming zero label leakage at deployment \citep{li2021threat, mavroeidis2018framework}.
+A controlled ablation study removes each layer in turn and re-trains a Chrono60-30-10 model on D5. Full stack reaches ROC-AUC 0.9928, F1@0.5\% FPR 0.8936, MCC 0.9539. No metadata harvest (drop L1): $+8.6\%$ AUC drop and $-41.0\%$ F1 collapse at 0.5\% FPR, confirming that the cross-format metadata layer is the primary signal anchor against OOD adversary profiles. No graph topology (drop L2): $+1.4\%$ AUC drop and $-13.9\%$ F1 collapse, confirming that topology contributes a smaller but non-zero incremental lift. No rule AST (drop L3): $+3.2\%$ AUC drop and $-22.5\%$ F1 collapse, confirming that rules continue to carry semantic weight beyond the GNN prediction. No multi-layer fusion (drop L3.5): reverts to a single-layer feature detector that collapses to ROC-AUC 0.7363 with a 26.25\% drop under the OOD credential-phishing attacker. After every ablation the runtime safety invariant re-checks the top-5 SHAP feature importances against the operational whitelist (\texttt{access\_\allowbreak novelty\_\allowbreak score}, \texttt{metadata\_\allowbreak stripped}, \allowbreak \texttt{off\_\allowbreak hours\_\allowbreak multiplier}, \allowbreak \texttt{identity\_\allowbreak proxy}, \allowbreak \texttt{copy\_\allowbreak to\_\allowbreak removable}, \allowbreak \texttt{n\_\allowbreak file\_\allowbreak accesses}, \allowbreak \texttt{outbound\_\allowbreak email}, \texttt{access\_\allowbreak hour}); on D5 the dominant feature is \texttt{copy\_\allowbreak to\_\allowbreak removable}, sitting in the whitelist and therefore confirming zero label leakage at deployment \citep{li2021threat, mavroeidis2018framework}.
 
 \begin{table*}[htbp]
 \caption{Layer Ablation Study on D5 OOD\_LAB\_EXFILTRATOR Hold-out Corpus.}
 \label{tab:layer_ablation}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
-\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{8pt}
 \begin{tabularx}{\textwidth}{X c c c c c}
 \toprule
 \textbf{Configuration} & \textbf{ROC-AUC} & \textbf{AUC $\Delta$ vs Full} & \textbf{F1@0.5\%FPR} & \textbf{F1 $\Delta$ vs Full} & \textbf{MCC} \\
@@ -95,8 +95,8 @@ OCC-CP-MULTIROC: Multi-layer ROC-AUC 0.9572, single-layer ROC-AUC 0.7363. The ab
 \label{tab:adversarial_robustness}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.15}
-\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{6pt}
 \begin{tabularx}{\textwidth}{X c c c c c c}
 \toprule
 \textbf{Attacker Vector} & \textbf{Single AUC} & \textbf{Multi AUC} & \textbf{$\Delta$} & \textbf{Single Drop \%} & \textbf{Multi Drop \%} & \textbf{Robustness Bound ($\le 5\%$)} \\
@@ -138,13 +138,14 @@ End-to-end mapping of \textbf{TURRET OS} deployment to the eight ISO/IEC 27043 r
 
 On the 80-core, 503.58 GB RAM, NVIDIA L40S deployment running Python 3.12.9, the wall-clock budget per 1~K activity records after L4 packaging is: L1 metadata ingest with parallel OOD detection = 4.2~s ($\times 1$ sd 0.7); L2 graph materialisation = 1.6~s ($\times 1$ sd 0.4); L3 rule AST evaluation = 0.8~s ($\times 1$ sd 0.2); L3.5 multi-layer fusion = 6.3~s ($\times 1$ sd 1.1); L4 W3C-PROV evidence packaging = 2.1~s ($\times 1$ sd 0.5). Total = 15.0~s ($\times 1$ sd 1.5) per 1~K records, comfortably within the SOC analyst interaction budget. Storage: the 35-user $\times$ 90-day $\times$ 2,431-record D5 corpus occupies 9.4 MB on disk across all formats; WORM-archived raw artefacts occupy 4.8 GB; evidence packs at the L4 emission layer occupy 1.2 MB across 583 alerts in the D5 evaluation. Test-suite verification reports 34/34 unit tests passed in 26.51~s.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Wall-Clock Execution Budget per 1 K Activity Records.}
 \label{tab:wallclock_budget}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.1}
-\begin{tabularx}{\linewidth}{X c c X}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{X c c X}
 \toprule
 \textbf{Component} & \textbf{Wall-Clock (s)} & \textbf{$\sigma$ ($\times 1$)} & \textbf{Notes} \\
 \midrule
@@ -157,7 +158,7 @@ L4 PROV packaging & 2.1 s & 0.5 & Ed25519 + Merkle \\
 \textbf{Total} & \textbf{15.0 s} & \textbf{1.5} & Fits SOC interaction budget \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table*}
 
 \begin{figure}[htbp]
 \centering
