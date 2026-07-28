@@ -2,9 +2,23 @@
 
 The pipeline has four logically distinct layers plus a multi-layer joint-inference stage. Each layer is independently testable and contributes a clearly bounded signal into both the anomaly score and the forensic-evidence bundle.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_architecture.pdf}
+\caption{TURRET OS Four-Layer Architecture (with Joint Inference).}
+\label{fig:architecture}
+\end{figure}
+
 \subsection{Layer 1 --- Cross-Format Metadata Harvest}
 
 Ingests OOXML (legacy and current), DOCX (legacy and current), XLSX, PPTX, PDF, DWG, EML, EPIC payload, bitmap images, and git commits \citep{didriksen2014ooxml, fu2015docx}. Extracted fields include \texttt{author}, \texttt{creator}, \texttt{lastModifiedBy}, \texttt{revision\_id}, \texttt{rsid\_originator}, \texttt{rsid\_revisions}, \texttt{parent\_rsid\_chain}, \texttt{total\_edit\_count}, \texttt{last\_modification\_date}, \texttt{git\_user\_email}, and \texttt{creation\_timestamp}. The L1 store exposes twelve derived feature columns: \texttt{access\_novelty\_score}, \texttt{metadata\_stripped}, \texttt{off\_hours\_multiplier}, \texttt{identity\_proxy}, \texttt{copy\_to\_removable}, \texttt{n\_file\_accesses}, \texttt{outbound\_email}, \texttt{access\_hour}, \texttt{revshare}, \texttt{comm\_share\_by\_hour}, \texttt{write\_open\_share}, and \texttt{bytes\_used\_relative} \citep{umair2024exif2vec, yasenenko2025evaluating}. A six-column evidence bundle underlies chain of custody end-to-end.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig11_l1_coverage.pdf}
+\caption{Layer-1 Cross-Format Metadata Coverage across Ingested Document Formats.}
+\label{fig:l1_coverage}
+\end{figure}
 
 \subsection{Layer 2 --- Knowledge Graph Representation}
 
@@ -13,6 +27,13 @@ Extracted metadata is materialised into a Neo4j graph with a fixed entity-relati
 \subsection{Layer 3 --- Rule AST Engine}
 
 A grammar-driven rule engine operating directly on L1 stores and L2 subgraphs. Predicates compile to a structured AST (predicate tree + source-spans + required relations) evaluated in-tree at millisecond latency. Implemented rule families: R1 Identity-Out-of-Profile (off-hours activity), R2 Mass-Download ($>500$ files/day), R3 Outbound-Email Burst, R4 Removable-Media Withdrawal, R5 Login Failure Storm, R6 Printing Burst, R7 Long-Term Network-Share Use, and R8 OOD Credential Use (clean traffic on stolen credentials during business hours, the canonical OOD phishing regime) \citep{li2021threat, mavroeidis2018framework}. Each fired rule is logged with a confidence value into the stepwise evidence bundle.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig12_rule_profile.pdf}
+\caption{Rule-Family Activation Profile across 583 Detected Alerts on D5 Pilot.}
+\label{fig:rule_profile}
+\end{figure}
 
 \subsection{Layer 3.5 --- Multi-Layer Graph Neural Network}
 

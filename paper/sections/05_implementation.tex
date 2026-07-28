@@ -2,7 +2,31 @@
 
 \subsection{Stack and Hardware Environment}
 
-TURRET OS is implemented in Python 3.12.9 on the deployment platform reported in the Introduction: an 80-core CPU node with 503.58 GB RAM and an NVIDIA L40S accelerator. Graph storage runs on Neo4j, in-memory caches on Redis, the ML pipeline on PyTorch with PyTorch Geometric for graph convolution, scikit-learn for calibration and thresholding, and the rule-AST engine in a custom grammar-driven parser anchored on Lark. The graph training, calibration, and runtime invariant run inside a single \texttt{turret.runtime} container.
+TURRET OS is implemented in Python 3.12.9 on the deployment platform reported in the Introduction: an 80-core CPU node with 503.58 GB RAM and an NVIDIA L40S accelerator. Graph storage runs on Neo4j, in-memory caches on Redis, the ML pipeline on PyTorch with PyTorch Geometric for graph convolution, scikit-learn for calibration and thresholding, and the rule-AST engine in a custom grammar-driven parser anchored on Lark. The graph training, calibration, and runtime invariant run inside a single \texttt{turret.runtime} container. Table~\ref{tab:deployment_stack} summarizes the deployment stack components.
+
+\begin{table}[htbp]
+\caption{Deployment Stack Snapshot and Technical Environment.}
+\label{tab:deployment_stack}
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{l l X}
+\toprule
+\textbf{Layer} & \textbf{Component} & \textbf{Role} \\
+\midrule
+CPU & 80 cores & L1 + L2 + L3 orchestrator \\
+Memory & 503.58 GB RAM & In-memory caches, feature tensors \\
+Accelerator & NVIDIA L40S & L3.5 GraphSAGE training + inference \\
+Language & Python 3.12.9 & Runtime + test suite \\
+Graph & Neo4j & L2 knowledge-graph substrate \\
+Cache & Redis & Intermediate alert queue \\
+DL & PyTorch + PyG & L3.5 stack \\
+Calibration & scikit-learn & CalibratedClassifierCV (isotonic, cv=3) \\
+Rule engine & Lark grammar & L3 AST evaluator \\
+Test suite & Pytest & 34 / 34 passed in 26.51 s \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Harvest Pipelines per File Format}
 
