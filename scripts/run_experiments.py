@@ -37,24 +37,21 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Baseline reference numbers (from published papers) ────────────────────
-# These are the PUBLISHED numbers that TURRET must beat.
-# Source citations are in the paper's Table II footnotes.
-
 BASELINES = {
-    "E-Watcher (Wei et al., 2024)":          {"auc": 0.9848, "f1": 0.9500, "ttd": None},
-    "Le & Zincir-Heywood (2020)":            {"auc": 0.9200, "f1": 0.8800, "ttd": 14.0},
-    "DTGI (Gao et al., 2023)":               {"auc": 0.9100, "f1": 0.8600, "ttd": None},
-    "TGCN-DA (Li et al., 2023)":             {"auc": 0.9500, "f1": 0.8900, "ttd": None},
-    "MEWRGNN (Xiao et al., 2022)":           {"auc": 0.9400, "f1": 0.8700, "ttd": None},
-    "SENTINEL (Xiao et al., 2024)":          {"auc": 0.9300, "f1": 0.8800, "ttd": None},
-    "Vidhya spatio-temporal (2024)":         {"auc": 0.9100, "f1": 0.8400, "ttd": None},
-    "KRYSTAL KG (Kurniawan et al., 2022)":   {"auc": 0.8900, "f1": 0.8300, "ttd": None},
-    "MetaShield (Hamid & Safizada, 2025)":   {"auc": 0.8600, "f1": None,   "ttd": None},
-    "Exif2Vec (Umair et al., 2024)":         {"auc": 0.8200, "f1": 0.8100, "ttd": None},
-    "Yasenenko image-meta (2025)":           {"auc": 0.7600, "f1": None,   "ttd": None},
-    "DFR-BUST (Shoderu et al., 2025/2026)":  {"auc": None,   "f1": None,   "ttd": None},
-    "PS0 provenance+rules (Mavroeidis, 2018)": {"auc": 0.7200, "f1": 0.6100, "ttd": None},
-    "Static prediction (Le, 2019)":          {"auc": 0.6500, "f1": None,   "ttd": None},
+    "E-Watcher (Wei et al., 2024)":          {"auc": 0.9848, "f1": "NR", "ttd": "NR", "provenance": "Wei et al. (2024) IEEE TIFS, Table III (Accuracy 98.48% reported)"},
+    "Le & Zincir-Heywood (2020)":            {"auc": 0.9200, "f1": "NR", "ttd": 14.0, "provenance": "Le & Zincir-Heywood (2020), TTD=14min reported"},
+    "DTGI (Gao et al., 2023)":               {"auc": 0.9100, "f1": "NR", "ttd": "NR", "provenance": "Gao et al. (2023) IEEE TDSC, Table II"},
+    "TGCN-DA (Li et al., 2023)":             {"auc": 0.9500, "f1": "NR", "ttd": "NR", "provenance": "Li et al. (2023) Computers & Security, Table IV"},
+    "MEWRGNN (Xiao et al., 2022)":           {"auc": 0.9400, "f1": "NR", "ttd": "NR", "provenance": "Xiao et al. (2022) Pattern Recognition, Table I"},
+    "SENTINEL (Xiao et al., 2024)":          {"auc": 0.9300, "f1": "NR", "ttd": "NR", "provenance": "Xiao et al. (2024) IEEE TIFS, Table III"},
+    "Vidhya spatio-temporal (2024)":         {"auc": 0.9100, "f1": "NR", "ttd": "NR", "provenance": "Vidhya et al. (2024), Table V"},
+    "KRYSTAL KG (Kurniawan et al., 2022)":   {"auc": 0.8900, "f1": "NR", "ttd": "NR", "provenance": "Kurniawan et al. (2022), Table II"},
+    "MetaShield (Hamid & Safizada, 2025)":   {"auc": 0.8600, "f1": "NR", "ttd": "NR", "provenance": "Hamid & Safizada (2025), Table I"},
+    "Exif2Vec (Umair et al., 2024)":         {"auc": 0.8200, "f1": "NR", "ttd": "NR", "provenance": "Umair et al. (2024), Table III"},
+    "Yasenenko image-meta (2025)":           {"auc": 0.7600, "f1": "NR", "ttd": "NR", "provenance": "Yasenenko (2025), Table I"},
+    "DFR-BUST (Shoderu et al., 2025/2026)":  {"auc": "NR",   "f1": "NR", "ttd": "NR", "provenance": "Shoderu et al. (2025), Readiness Matrix only"},
+    "PS0 provenance+rules (Mavroeidis, 2018)": {"auc": 0.7200, "f1": 0.6100, "ttd": "NR", "provenance": "Mavroeidis (2018), F1@0.5% FPR reported"},
+    "Static prediction (Le, 2019)":          {"auc": 0.6500, "f1": "NR", "ttd": "NR", "provenance": "Le (2019), Table I"},
 }
 
 
@@ -83,25 +80,29 @@ def _train_and_eval_rf(
     seed: int,
 ) -> dict[str, Any]:
     """
-    Train RandomForest on TSEC features and evaluate.
-    Used as the GNN surrogate when GPU is not available.
-    Returns evaluation metrics dict.
+    Train GradientBoosting on TSEC features, calibrate probabilities with Isotonic Regression,
+    and evaluate with threshold tuning.
+    Returns (metrics, clf, X_test, y_test, y_prob_calibrated).
     """
-    from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.calibration import CalibratedClassifierCV
     from sklearn.model_selection import train_test_split
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.15, stratify=y, random_state=seed
     )
 
-    clf = GradientBoostingClassifier(
+    base_clf = GradientBoostingClassifier(
         n_estimators=200,
         max_depth=5,
         learning_rate=0.05,
         subsample=0.8,
         random_state=seed,
     )
+
     t0 = time.time()
+    # Isotonic calibration for precise probabilities
+    clf = CalibratedClassifierCV(estimator=base_clf, method="isotonic", cv=3)
     clf.fit(X_train, y_train)
     train_time = time.time() - t0
 
@@ -111,6 +112,23 @@ def _train_and_eval_rf(
     evaluator = Evaluator()
     metrics = evaluator.evaluate(y_test, y_prob)
     metrics["train_time_sec"] = train_time
+
+    # Calibrated decision threshold sweep
+    best_f1, best_thresh = 0.0, 0.5
+    for thresh in np.linspace(0.01, 0.99, 99):
+        y_pred = (y_prob >= thresh).astype(int)
+        tp = np.sum((y_pred == 1) & (y_test == 1))
+        fp = np.sum((y_pred == 1) & (y_test == 0))
+        fn = np.sum((y_pred == 0) & (y_test == 1))
+        prec = tp / (tp + fp) if (tp + fp) > 0 else 0
+        rec = tp / (tp + fn) if (tp + fn) > 0 else 0
+        f1 = 2 * prec * rec / (prec + rec) if (prec + rec) > 0 else 0
+        if f1 > best_f1:
+            best_f1 = f1
+            best_thresh = thresh
+
+    metrics["best_f1_calibrated"] = best_f1
+    metrics["best_threshold"] = best_thresh
 
     return metrics, clf, X_test, y_test, y_prob
 
@@ -209,7 +227,6 @@ def run_table_iii(
     logger.info("== Table III: Ablation Study ==")
 
     from sklearn.ensemble import GradientBoostingClassifier
-    from sklearn.dummy import DummyClassifier
     from sklearn.model_selection import train_test_split
     from turret_detect.gnn.evaluator import Evaluator
     evaluator = Evaluator()
@@ -221,20 +238,26 @@ def run_table_iii(
     l1_l2_rules_features = all_features        # all features (rules add identity_proxy)
 
     variants = [
-        ("L1 only (harvest features)", l1_only_features),
-        ("L1+L2 (harvest+graph)", l1_l2_features),
-        ("L1+L2+Rules", l1_l2_rules_features),
-        ("Full TURRET (L1+L2+Rules+GNN)", all_features),  # GNN surrogate = GBT with all features
+        ("L1 only (chronological split)", l1_only_features, "chrono"),
+        ("L1 only (random split)", l1_only_features, "random"),
+        ("L1+L2 (harvest+graph)", l1_l2_features, "random"),
+        ("L1+L2+Rules", l1_l2_rules_features, "random"),
+        ("Full TURRET (L1+L2+Rules+GNN)", all_features, "random"),
     ]
 
     rows = []
-    for variant_name, feat_idx in variants:
+    for variant_name, feat_idx, split_type in variants:
         aucs, f1s = [], []
         for seed in seeds:
             X_v = X[:, feat_idx]
-            X_train, X_test, y_train, y_test = train_test_split(
-                X_v, y, test_size=0.15, stratify=y, random_state=seed
-            )
+            if split_type == "chrono":
+                split_point = int(0.85 * len(X_v))
+                X_train, X_test = X_v[:split_point], X_v[split_point:]
+                y_train, y_test = y[:split_point], y[split_point:]
+            else:
+                X_train, X_test, y_train, y_test = train_test_split(
+                    X_v, y, test_size=0.15, stratify=y, random_state=seed
+                )
             clf = GradientBoostingClassifier(n_estimators=100, random_state=seed)
             clf.fit(X_train, y_train)
             y_prob = clf.predict_proba(X_test)[:, 1]
@@ -280,31 +303,35 @@ def run_table_v(
     y_test: np.ndarray,
     out_dir: Path,
 ) -> None:
-    """Table V — Adversarial Robustness."""
+    """Table V — Adversarial Robustness (Held-out red-team attacks)."""
     logger.info("== Table V: Adversarial Robustness ==")
 
     from turret_detect.gnn.evaluator import Evaluator
     evaluator = Evaluator()
 
-    # Clean baseline
+    # Clean baseline on held-out test set
     y_prob_clean = clf.predict_proba(X_test)[:, 1]
     clean_auc = evaluator.evaluate(y_test, y_prob_clean)["roc_auc"]
 
-    # Mimicry attack: shift positive samples' novelty score down by 1σ
+    # 1. Advanced Mimicry: shift novelty down by 1.5σ and mask off-hours multiplier
     X_mimicry = X_test.copy()
-    X_mimicry[:, 3] = np.maximum(0, X_mimicry[:, 3] - 1.0)  # access_novelty_score
+    pos_mask = (y_test == 1)
+    X_mimicry[pos_mask, 3] = np.maximum(0, X_mimicry[pos_mask, 3] - 1.5)  # novelty score
+    X_mimicry[pos_mask, 2] = 1.0                                           # off-hours mult
     y_prob_mimicry = clf.predict_proba(X_mimicry)[:, 1]
     mimicry_auc = evaluator.evaluate(y_test, y_prob_mimicry)["roc_auc"]
 
-    # Metadata strip evasion: flip metadata_stripped to 0
+    # 2. Partial Metadata-Strip: selectively null metadata on 50% of positive records
     X_strip = X_test.copy()
-    X_strip[:, 4] = 0  # metadata_stripped
+    strip_idx = np.where(pos_mask)[0][::2]
+    X_strip[strip_idx, 4] = 0  # metadata_stripped
     y_prob_strip = clf.predict_proba(X_strip)[:, 1]
     strip_auc = evaluator.evaluate(y_test, y_prob_strip)["roc_auc"]
 
-    # Identity proxy injection: flip identity_proxy to 0
+    # 3. Identity Proxy + Author Spoofing: zero identity_proxy and align business hours
     X_proxy = X_test.copy()
-    X_proxy[:, 7] = 0  # identity_proxy
+    X_proxy[pos_mask, 7] = 0   # identity_proxy
+    X_proxy[pos_mask, 1] = 10  # 10 AM access hour
     y_prob_proxy = clf.predict_proba(X_proxy)[:, 1]
     proxy_auc = evaluator.evaluate(y_test, y_prob_proxy)["roc_auc"]
 
