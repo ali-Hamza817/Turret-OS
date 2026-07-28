@@ -40,26 +40,26 @@
 
 \let\printorcid\relax
 
-% Completely remove headers and footers from ALL pages (no "Preprint submitted to Elsevier" or author running heads)
+% Configure page style: Clean page number in the bottom footer, zero header/author text
 \makeatletter
 \def\ps@cas{%
   \let\@mkboth\@gobbletwo
   \def\@oddhead{}%
   \def\@evenhead{}%
-  \def\@oddfoot{}%
-  \def\@evenfoot{}%
+  \def\@oddfoot{\hfil\thepage\hfil}%
+  \def\@evenfoot{\hfil\thepage\hfil}%
 }
 \def\ps@firstpage{%
   \let\@mkboth\@gobbletwo
   \def\@oddhead{}%
   \def\@evenhead{}%
-  \def\@oddfoot{}%
-  \def\@evenfoot{}%
+  \def\@oddfoot{\hfil\thepage\hfil}%
+  \def\@evenfoot{\hfil\thepage\hfil}%
 }
 \let\ps@headings\ps@cas
 \let\ps@plain\ps@cas
 \makeatother
-\pagestyle{empty}
+\pagestyle{cas}
 
 % Float placement controls to prevent isolated table pages
 \renewcommand{\topfraction}{0.95}
@@ -104,7 +104,7 @@ Out-of-Distribution Robustness
 \end{keywords}
 
 \maketitle
-\thispagestyle{empty}
+\thispagestyle{cas}
 
 % -----------------------------------------------------------------------------
 % Body Sections
