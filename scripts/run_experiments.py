@@ -354,17 +354,75 @@ def run_table_v(
     y_prob_proxy = clf.predict_proba(X_proxy)[:, 1]
     proxy_auc = evaluator.evaluate(y_test, y_prob_proxy)["roc_auc"]
 
+    # 4. OOD Credential-Phishing Attacker: normal business hours, low novelty score, identity proxy + removable transfer
+    X_ood = X_test.copy()
+    X_ood[pos_mask, 1] = 14   # 2 PM business hours
+    X_ood[pos_mask, 2] = 1.0  # 1.0 off hours mult
+    X_ood[pos_mask, 3] = 1.1  # low novelty score
+    y_prob_ood = clf.predict_proba(X_ood)[:, 1]
+    ood_auc = evaluator.evaluate(y_test, y_prob_ood)["roc_auc"]
+
     rows = [
         {"Adversary": "Clean (no attack)", "Clean_AUC": round(clean_auc, 4), "Attacked_AUC": round(clean_auc, 4), "Drop_%": 0.0},
         {"Adversary": "Mimicry attack", "Clean_AUC": round(clean_auc, 4), "Attacked_AUC": round(mimicry_auc, 4), "Drop_%": round(100*(clean_auc - mimicry_auc)/clean_auc, 2)},
         {"Adversary": "Metadata-strip evasion (CLEANER)", "Clean_AUC": round(clean_auc, 4), "Attacked_AUC": round(strip_auc, 4), "Drop_%": round(100*(clean_auc - strip_auc)/clean_auc, 2)},
         {"Adversary": "Identity-proxy injection", "Clean_AUC": round(clean_auc, 4), "Attacked_AUC": round(proxy_auc, 4), "Drop_%": round(100*(clean_auc - proxy_auc)/clean_auc, 2)},
+        {"Adversary": "OOD Credential-Phishing Attacker", "Clean_AUC": round(clean_auc, 4), "Attacked_AUC": round(ood_auc, 4), "Drop_%": round(100*(clean_auc - ood_auc)/clean_auc, 2)},
     ]
     df = pd.DataFrame(rows)
     path = out_dir / "table_V_adversarial.csv"
     df.to_csv(path, index=False)
     logger.info("Table V written to %s", path)
     print(df.to_string(index=False))
+
+
+def run_d5_evaluation(out_dir: Path) -> None:
+    """Run end-to-end evaluation on Dataset D5 Synthetic-Tenant Pilot."""
+    d5_dir = Path("data/d5_tenant")
+    if not (d5_dir / "activities.parquet").exists():
+        return
+
+    logger.info("== Dataset D5 End-to-End Evaluation ==")
+    acts = pd.read_parquet(d5_dir / "activities.parquet")
+    labels = pd.read_parquet(d5_dir / "labels.parquet")
+    merged = acts.merge(labels, on=["user_id", "date", "day_idx"], how="left")
+    merged["is_malicious"] = merged["is_malicious"].fillna(False).astype(int)
+
+    feature_cols = [
+        "n_file_accesses", "access_hour", "off_hours_multiplier",
+        "access_novelty_score", "metadata_stripped", "copy_to_removable",
+        "outbound_email", "identity_proxy",
+    ]
+    X = merged[feature_cols].fillna(0).values.astype(np.float32)
+    y = merged["is_malicious"].values.astype(int)
+
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.calibration import CalibratedClassifierCV
+    from sklearn.model_selection import train_test_split
+    from turret_detect.gnn.evaluator import Evaluator
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, stratify=y, random_state=42)
+    base_clf = GradientBoostingClassifier(n_estimators=100, random_state=42)
+    clf = CalibratedClassifierCV(estimator=base_clf, method="isotonic", cv=2)
+    clf.fit(X_train, y_train)
+
+    y_prob = clf.predict_proba(X_test)[:, 1]
+    evaluator = Evaluator()
+    m = evaluator.evaluate(y_test, y_prob)
+
+    d5_metrics = {
+        "dataset_id": "D5 Synthetic-Tenant Pilot",
+        "n_records": len(X),
+        "roc_auc": round(m.get("roc_auc", 0.0), 4),
+        "f1_at_fpr_005": round(m.get("f1_at_fpr_005", 0.0), 4),
+        "mcc": round(m.get("mcc", 0.0), 4),
+    }
+
+    with open(out_dir / "d5_metrics.json", "w") as f:
+        json.dump(d5_metrics, f, indent=2)
+
+    logger.info("D5 evaluation complete: AUC=%.4f F1=%.4f MCC=%.4f -> %s/d5_metrics.json",
+                d5_metrics["roc_auc"], d5_metrics["f1_at_fpr_005"], d5_metrics["mcc"], out_dir)
 
 
 def run_table_vi(out_dir: Path) -> None:
@@ -490,6 +548,7 @@ def main() -> None:
     run_table_v(X, y, clf, X_test, y_test, out_dir)
     run_table_vi(out_dir)
     run_table_vii(len(X), metrics.get("train_time_sec", 0.0), out_dir)
+    run_d5_evaluation(out_dir)
 
     # Save full metrics
     with open(out_dir / "primary_metrics.json", "w") as f:

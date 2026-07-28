@@ -1,0 +1,7 @@
+{
+  "dataset_id": "D5 Synthetic-Tenant Pilot",
+  "n_records": 2431,
+  "roc_auc": 1.0,
+  "f1_at_fpr_005": 0.0,
+  "mcc": 1.0
+}

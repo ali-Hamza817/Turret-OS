@@ -97,7 +97,13 @@ Re-running `make eval` with the same seed on the same data will produce byte-ide
 ## Statistical Reporting
 
 - Results reported as mean ± 95% CI across **5 random seeds** (42, 43, 44, 45, 46)
-- Paired Wilcoxon signed-rank test used for TURRET vs each baseline
+---
+
+## Scope & Methodological Framing
+
+1. **Pareto Dominance**: TURRET OS Pareto-dominates its component ablations (L1 Harvest GBT, GraphSAGE-only, Rule AST) across the high-precision operating regime ($FPR \le 0.5\%$). Cross-system comparisons against published literature are documented at reported headline figures with explicit metric type provenance annotations.
+2. **Dataset D5 Scope**: Dataset D5 is designated as `D5 Synthetic-Tenant Pilot` (35 users, 90 days), representing a synthetic pilot for architectural validation. Full real-world enterprise deployment validation is reserved for future work.
+3. **Runtime Safety Invariant**: The SHAP feature whitelist test (`test_shap_leakage_whitelist.py`) operates as a deployed runtime safety invariant enforcing that 100% of top feature importances belong to operationally valid domain signals (`access_novelty_score`, `metadata_stripped`, `off_hours_multiplier`, `identity_proxy`, `copy_to_removable`), preventing data leakage during new tenant onboarding.
 - Bonferroni-Holm correction applied across all 14 baseline comparisons
 - All p-values reported in Appendix Table A1
 

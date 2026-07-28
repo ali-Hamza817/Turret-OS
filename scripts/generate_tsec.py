@@ -94,6 +94,17 @@ PROFILES = {
         "outbound_email_rate": 0.5,
         "badge_corr_rate": 0.7,        # copies near badge events
     },
+    "CREDENTIAL_PHISHING_ATTACKER": {
+        "prevalence": 0.004,
+        "description": "Operates during standard business hours using stolen helpdesk credentials",
+        "clearance_violation_rate": 0.08,
+        "off_hours_multiplier": 1.0,
+        "novelty_score_mean": 1.2,
+        "metadata_strip_rate": 0.1,
+        "removable_copy_rate": 0.5,
+        "outbound_email_rate": 0.6,
+        "identity_proxy_rate": 0.7,
+    },
 }
 
 CLEARANCE_LEVELS = ["open", "cui", "secret", "ts", "ts_sci"]
