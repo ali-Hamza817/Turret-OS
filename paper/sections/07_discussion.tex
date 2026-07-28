@@ -1,0 +1,13 @@
+\section{Discussion}
+
+\subsection{Why Multi-Layer Architecture Rescues OOD Detection}
+Our experimental findings reveal why single-layer statistical detectors consistently fail against out-of-distribution (OOD) adversaries. When an attacker executes a credential-phishing campaign during normal business hours, single-layer classifiers evaluating access hour, access volume, or novelty scores experience a 26.25\% drop in ROC-AUC (degrading to 0.7363). In contrast, TURRET OS maintains high detection accuracy (0.9572 ROC-AUC) because its L2 provenance graph captures structural co-editing relationships (\texttt{CO\_EDITED\_WITH}, \texttt{COMMITTED\_TO}) and its L3 boolean rule AST enforces strict security policy constraints. The multi-layer joint inference mechanism ensures that feature evasion at Layer 1 is effectively compensated by topology and rule constraints at Layers 2 and 3.
+
+\subsection{Forensic Evidence Delivery from Graph Provenance}
+Traditional security monitoring architectures deliver raw log events or uncalibrated anomaly probabilities that require laborious manual investigation. TURRET OS transforms detection into an automated forensic delivery process. By extracting the multi-hop W3C-PROV provenance subgraph surrounding an alert, constructing a Merkle tree over record hashes, and signing the Merkle root with Ed25519 cryptographic keys, TURRET OS delivers tamper-evident, court-admissible evidence bundles that achieve 100.0\% compliance with ISO/IEC 27043 attributes.
+
+\subsection{Architectural Comparison with Prior Baselines}
+Compared to baseline GNN systems such as E-Watcher \citep{wei2024ewatcher} (98.48\% accuracy reported), TGCN-DA \citep{li2023tgcnda} (0.9500 ROC-AUC), and MEWRGNN \citep{xiao2022mewrgnn} (0.9400 ROC-AUC), TURRET OS achieves superior detection metrics (0.9983 ROC-AUC, 0.8813 F1 at 0.5\% FPR) while uniquely integrating cross-format document header metadata and automated ISO/IEC 27043 evidence packaging. Furthermore, by reporting explicit metric provenance across all literature baselines, TURRET OS avoids metric-type ambiguity.
+
+\subsection{Engineering Cost and Operational Feasibility}
+The computational profiling results (\Cref{tab:cost_budget}) demonstrate that TURRET OS is highly feasible for enterprise deployment. Processing 1,000,000 telemetry records consumes only 0.67 total CPU-hours and 0.01 GPU-hours, with a minimal storage footprint of 0.90 GB. Operating at a time-to-detect of $<0.1$ minutes, TURRET OS provides zero-delay real-time response capability suitable for SOC deployment.

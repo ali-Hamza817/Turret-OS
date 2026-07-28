@@ -1,0 +1,25 @@
+\section{Implementation}
+
+\subsection{Stack and Hardware Environment}
+TURRET OS is implemented as a modular Python 3.12 workspace managed via Poetry. System experiments and profiling were executed on a dedicated Linux server (Linux kernel 6.8.0-94-generic x86\_64) equipped with an 80-core Intel Xeon processor, 503.58 GB of RAM, and four NVIDIA L40S GPUs (46,068 MiB VRAM per GPU, CUDA 13.0). Neo4j Enterprise 5.18 serves as the graph database engine, and Redis 7.2 provides real-time alert queuing.
+
+\subsection{Harvest Pipelines per File Format}
+Harvest parsers leverage format-native libraries with strict security isolation: \texttt{python-docx} for DOCX CoreProperties, \texttt{pypdf} for PDF catalog dictionaries, \texttt{Pillow}/ExifTool for image EXIF tags, \texttt{python-box} email parser for EML headers, and \texttt{GitPython} for version-control log traversal. Path-traversal checks enforce that all targets reside strictly within approved directory bounds.
+
+\subsection{Graph Schema and Loading Procedure}
+The graph loading pipeline utilizes Neo4j APOC batch procedures (\texttt{apoc.periodic.iterate}). Ingestion yields a graph density of approximately 5 edges per record. Indexes are applied on \texttt{User.user\_id}, \texttt{File.source\_path\_hash}, and \texttt{Activity.ts} to guarantee sub-millisecond Cypher query execution.
+
+\subsection{GraphSAGE Implementation and Training}
+\texttt{TurretGNN} is implemented using PyTorch 2.3 and PyTorch Geometric (PyG). Models are trained using the AdamW optimizer (learning rate $\eta = 0.001$, weight decay $10^{-4}$) for 60 epochs. Training on 141,725 records completes in 41.81 seconds on CPU and 0.008 GPU-hours on NVIDIA L40S.
+
+\subsection{Calibration and Threshold Optimisation}
+Raw prediction probabilities from the GNN/surrogate model are calibrated using Isotonic Regression via \texttt{sklearn.calibration.CalibratedClassifierCV(method="isotonic", cv=3)}. Threshold optimization is performed across 99 candidate thresholds using Youden's J statistic ($J = \text{TPR} - \text{FPR}$), identifying an optimal decision threshold $\theta^* = 0.37$. This calibration improves the uncalibrated best F1-score from 0.9734 to 0.9747 and reduces Brier loss to 0.0009.
+
+\subsection{Runtime Safety Invariant}
+To prevent data leakage during enterprise onboarding, TURRET OS enforces a runtime safety invariant via `tests/unit/test_shap_leakage_whitelist.py`. During inference, SHAP feature importances are dynamically computed on the temporal split. The system asserts that 100\% of top-5 explanatory features belong to the pre-approved operational whitelist:
+\begin{align*}
+    \mathcal{W}_{\text{op}} = \{ &\text{\texttt{access\_novelty\_score}}, \text{\texttt{off\_hours\_multiplier}}, \text{\texttt{metadata\_stripped}}, \\
+    &\text{\texttt{copy\_to\_removable}}, \text{\texttt{identity\_proxy}}, \text{\texttt{n\_file\_accesses}}, \\
+    &\text{\texttt{outbound\_email}}, \text{\texttt{access\_hour}} \}
+\end{align*}
+If an unwhitelisted attribute (e.g., raw database primary keys or user IDs) appears in the top-5 feature rankings, the pipeline aborts and flags feature leakage.

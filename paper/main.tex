@@ -1,0 +1,96 @@
+\documentclass[a4paper,fleqn]{cas-dc}
+
+% Packages
+\usepackage[authoryear]{natbib}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{afterpage}
+\usepackage{stfloats}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage[nameinlink]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+\crefname{figure}{Figure}{Figures}
+\Crefname{figure}{Figure}{Figures}
+
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+
+\let\printorcid\relax
+
+\begin{document}
+
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{0.001}
+
+\shorttitle{TURRET OS: Provenance Knowledge Graph \& Multi-Timescale GNN for Counter-Espionage}
+
+\title[mode=title]{TURRET OS: A W3C-PROV-Aligned Provenance Knowledge Graph Embedded with Multi-Timescale Graph Neural Networks for Counter-Espionage Insider Threat Detection and ISO/IEC 27043-Compliant Forensic Evidence Generation}
+
+\shortauthors{Ali Hamza et al.}
+
+\author[1]{Ali Hamza}
+\cormark[1]
+\ead{ahamza.msse25mcs@student.nust.edu.pk}
+
+\author[2]{Ghulam Mujtaba}
+
+\address[1]{National University of Sciences and Technology (NUST), Islamabad, Pakistan}
+\address[2]{National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan}
+
+\cortext[cor1]{Corresponding author}
+
+% -----------------------------------------------------------------------------
+% Abstract
+% -----------------------------------------------------------------------------
+\input{sections/00_abstract.tex}
+
+\begin{keywords}
+Insider Threat Detection \sep
+Provenance Knowledge Graphs \sep
+Graph Neural Networks \sep
+Digital Forensic Readiness \sep
+ISO/IEC 27043 \sep
+Out-of-Distribution Evasion
+\end{keywords}
+
+\maketitle
+
+% -----------------------------------------------------------------------------
+% Body Sections
+% -----------------------------------------------------------------------------
+\input{sections/01_introduction.tex}
+\input{sections/02_literature_review.tex}
+\input{sections/03_threat_model.tex}
+\input{sections/04_architecture.tex}
+\input{sections/05_implementation.tex}
+\input{sections/06_evaluation.tex}
+\input{sections/07_discussion.tex}
+\input{sections/08_limitations.tex}
+\input{sections/09_conclusion.tex}
+
+% -----------------------------------------------------------------------------
+% References
+% -----------------------------------------------------------------------------
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,36 @@
+\section{Threat Model and Problem Formulation}
+
+\subsection{Adversary Profiles}
+We formulate the insider threat landscape around six distinct adversary profiles, reflecting espionage-grade tactics observed in high-clearance military and enterprise networks:
+\begin{enumerate}
+    \item \textbf{MIRROR\_USER} (Prevalence: 0.8\%): Mimics normal user behavior by keeping file access volume and timing within normal statistical bounds ($<3\sigma$ deviation).
+    \item \textbf{BREATHING\_COLLECTOR} (Prevalence: 0.6\%): Executes slow, low-volume document harvesting spread over weeks to evade threshold-based anomaly alerts.
+    \item \textbf{GHOST\_AUTHOR} (Prevalence: 0.4\%): Accesses documents via shared or proxy accounts, editing files under stolen colleague identities to bypass authorship tracking.
+    \item \textbf{COMFORT\_BREAKER} (Prevalence: 1.0\%): Periodically probes documents exceeding their assigned security clearance level (e.g., CUI user attempting access to TS/SCI assets).
+    \item \textbf{CLEANER} (Prevalence: 0.4\%): Systematically strips document header metadata (EXIF, OOXML properties, revision histories) prior to scheduled exfiltration.
+    \item \textbf{CREDENTIAL\_PHISHING\_ATTACKER} (Prevalence: 0.4\%): Operates during standard business hours using compromised helpdesk credentials, combining low novelty access scores with high removable-media transfer and email exfiltration.
+\end{enumerate}
+
+\subsection{Attack Vectors and Evasion Strategies}
+Adversaries employ three principal evasion strategies designed to defeat single-layer statistical detectors:
+\begin{itemize}
+    \item \textbf{Mimicry Perturbation}: Modifying access hours to match peak organizational activity (e.g., 10:00 AM–2:00 PM) and throttling daily access counts.
+    \item \textbf{Metadata Sanitization}: Nullifying EXIF GPS tags, OOXML author properties, and Git commit metadata to eliminate point-in-time forensic attributes.
+    \item \textbf{Identity Proxying}: Utilizing stolen session tokens or secondary user accounts to execute actions under benign organizational identities.
+\end{itemize}
+
+\subsection{Forensic Readiness Requirements}
+To ensure judicial admissibility, detection outputs must satisfy the eight core attributes specified by the ISO/IEC 27043 standard:
+\begin{itemize}
+    \item \textit{Identification}: Unique assignment of \texttt{record\_id} and \texttt{alert_id} across all harvested telemetry.
+    \item \textit{Collection}: Standardized, documented telemetry extraction pipeline.
+    \item \textit{Acquisition}: Digital record capture with dual SHA-256 and BLAKE3 hash verification.
+    \item \textit{Preservation}: Cryptographic chain-of-custody maintenance via hash-chaining.
+    \item \textit{Analysis}: Explainable detection attribution leveraging SHAP and GNNExplainer provenance subgraphs.
+    \item \textit{Presentation}: Analyst-workbench-compatible output formatting.
+    \item \textit{Chain of Custody}: Timestamped logging of all operators and evidence handlers.
+    \item \textit{Integrity Verification}: Cryptographic tamper-evidence via Ed25519 signatures over Merkle tree root hashes.
+\end{itemize}
+
+\subsection{Detection and Robustness Evaluation Criteria}
+The primary objective of TURRET OS is to maximize detection metrics—specifically ROC-AUC, F1-score at a strict 0.5\% False Positive Rate (FPR), and Matthews Correlation Coefficient (MCC)—while bounding time-to-detect ($<0.1$ min) and ensuring that adversarial AUC drop remains bounded under red-team evasion attacks.

@@ -1,0 +1,16 @@
+\section{Limitations and Future Work}
+
+\subsection{Synthetic Scope of D5}
+Dataset D5 is designated as `D5 Synthetic-Tenant Pilot` (35 users, 90 days), representing a synthetic pilot for architectural validation. While D5 simulates realistic enterprise workflows and tagged insider scenarios, full real-world enterprise tenant validation requires operational deployment in an active SOC environment.
+
+\subsection{Absence of Public CERT Comparison Rows}
+Due to Carnegie Mellon University SEI Data Use Agreement (DUA) licensing requirements, direct benchmark evaluation on CERT r6.2 and r4.2 raw datasets is footnoted in Table I and Table II. Future work will complete formal SEI DUA authorization to publish direct cross-dataset benchmark evaluations.
+
+\subsection{Per-File-Format Marginal Value Not Yet Reported}
+While TURRET OS extracts metadata across five major document formats (DOCX, PDF, EXIF, EML, Git), this study evaluates the combined multi-format feature space. Isolating the precise marginal contribution of each individual document parser represents an important avenue for future ablation studies.
+
+\subsection{Single OOD Threat-Class Regime}
+Adversarial evaluations in this work focus on mimicry, metadata-stripping, identity-proxy spoofing, and credential-phishing evasion vectors. Emerging threat vectors, such as generative AI-driven social engineering or hardware-level DMA attacks, remain outside the current threat model scope.
+
+\subsection{Path to Industrial-Scale Tenant Evaluation}
+Future research will extend TURRET OS to industrial-scale cloud deployments (100,000+ endpoints), integrating distributed graph streaming engines (e.g., Apache Flink + Neo4j Fabric) to maintain sub-second detection latencies at petabyte scale.

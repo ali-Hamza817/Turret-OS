@@ -1,0 +1,55 @@
+\section{TURRET OS Architecture}
+
+TURRET OS is structured as a four-layer braided architecture designed to seamlessly bridge raw endpoint telemetry with court-admissible forensic evidence packaging.
+
+\subsection{Layer 1 — Cross-Format Metadata Harvest}
+Layer 1 consists of specialized, isolated parser modules targeting five major enterprise document and communication formats:
+\begin{itemize}
+    \item \textbf{DOCX Parser}: Extracts core XML properties (\texttt{dc:creator}, \texttt{cp:lastModifiedBy}, \texttt{cp:revision}), custom properties, and revision identifier (\texttt{rsid}) chains.
+    \item \textbf{PDF Parser}: Parses structural dictionary headers, document modification history, and digital signature metadata.
+    \item \textbf{Image/EXIF Parser}: Extracts EXIF tags including camera make/model, software modification strings, and GPS spatio-temporal coordinates.
+    \item \textbf{EML Parser}: Extracts RFC 822 email headers (\texttt{From}, \texttt{To}, \texttt{Received} hop sequences, Message-ID, and attachment cryptographic hashes).
+    \item \textbf{Git Parser}: Captures commit hashes, author vs.\ committer identity discrepancies, time zone offsets, and modified file paths.
+\end{itemize}
+Harvested records are normalized into a unified \texttt{FileRecord} schema and streamed to an append-only Parquet sink partitioned by date and classifier level.
+
+\subsection{Layer 2 — Knowledge Graph Representation}
+Layer 2 models entity-relationship telemetry in a Neo4j graph database. The schema defines node types $\mathcal{V} = \{\text{User}, \text{File}, \text{Device}, \text{Email}, \text{Commit}, \text{ClearanceZone}\}$ and relationship edges $\mathcal{E} = \{\text{EDITED\_BY}, \text{ACCESSED\_FROM}, \text{EMAILED\_TO}, \text{COMMITTED\_BY}, \text{BELONGS\_TO}\}$. All entity and edge definitions adhere strictly to W3C PROV-O ontology primitives (\texttt{prov:Entity}, \texttt{prov:Activity}, \texttt{prov:Agent}). Batch loading is executed via Neo4j APOC procedure calls with transactional safety.
+
+\subsection{Layer 3 — Rule AST Engine}
+Layer 3 implements an 8-rule boolean Abstract Syntax Tree (AST) engine that evaluates incoming activity streams against organizational security policy. Key rules include:
+\begin{itemize}
+    \item \texttt{CLEARANCE\_VIOLATION}: Evaluates whether document classifier level exceeds user clearance index.
+    \item \texttt{METADATA\_STRIP}: Detects complete removal of author/EXIF headers followed by outbound file transfer within 30 minutes.
+    \item \texttt{IDENTITY\_PROXY}: Identifies discrepancies between session authentication identity and document author properties.
+    \item \texttt{OFF\_HOURS\_ACCESS}: Flags high-volume file accesses occurring outside 08:00–18:00 business hours.
+\end{itemize}
+
+\subsection{Layer 3.5 — Multi-Layer Graph Neural Network}
+The GNN model (\texttt{TurretGNN}) combines spatial message passing with temporal embedding. Node features are processed through a 2-layer GraphSAGE architecture:
+\begin{equation}
+    \mathbf{h}_v^{(k)} = \sigma \left( \mathbf{W}^{(k)} \cdot \text{CONCAT} \left( \mathbf{h}_v^{(k-1)}, \text{AGGREGATE}\left( \{\mathbf{h}_u^{(k-1)}, \forall u \in \mathcal{N}(v)\} \right) \right) \right)
+\end{equation}
+Temporal dynamics are captured via a Time2Vec layer encoding non-periodic time intervals $\tau$:
+\begin{equation}
+    \text{Time2Vec}(\tau)_i = \begin{cases} \omega_0 \tau + \varphi_0 & \text{if } i = 0 \\ \sin(\omega_i \tau + \varphi_i) & \text{if } 1 \le i \le k \end{cases}
+\end{equation}
+The model is trained using Focal Loss to counteract extreme class imbalance (1.91\% positive rate).
+
+\subsection{Layer 4 — W3C-PROV-Aligned Evidence Packaging}
+When Layer 3/3.5 raises an alert ($\text{score} \ge \theta$), Layer 4 extracts the multi-hop provenance subgraph surrounding the target alert node. The subgraph edges are serialized into W3C PROV-JSON-LD format. Leaf records are hashed into a Merkle tree using SHA-256:
+\begin{equation}
+    H_{\text{root}} = \text{MerkleTree}(\{H(\text{Record}_1), H(\text{Record}_2), \dots, H(\text{Record}_n)\})
+\end{equation}
+The Merkle root is signed using an Ed25519 private key:
+\begin{equation}
+    \sigma_{\text{evidence}} = \text{Ed25519}_{\text{Sign}}(K_{\text{private}}, H_{\text{root}} \parallel \text{Timestamp})
+\end{equation}
+The signature, public key certificate, PROV-JSON-LD manifest, and raw Parquet records are packaged into an ISO/IEC 27043-compliant ZIP evidence bundle.
+
+\subsection{Multi-Layer Joint Inference Mechanism}
+The final alert decision fuses Layer 1 harvest features $\mathbf{x}_{\text{harv}}$, Layer 2 graph topological embeddings $\mathbf{h}_{\text{gnn}}$, and Layer 3 rule AST boolean hit vector $\mathbf{r}_{\text{ast}}$:
+\begin{equation}
+    S_{\text{final}} = \text{Sigmoid}\left( \mathbf{w}_g^T \mathbf{h}_{\text{gnn}} + \mathbf{w}_r^T \mathbf{r}_{\text{ast}} + \mathbf{w}_x^T \mathbf{x}_{\text{harv}} \right)
+\end{equation}
+This joint formulation ensures that even if an attacker manipulates L1 features $\mathbf{x}_{\text{harv}}$ to evade single-layer detection, L2 graph structural relationships and L3 policy rules maintain high alert scores.
