@@ -5,7 +5,7 @@
 
 \textbf{TURRET OS} is implemented in Python 3.12.9 on the deployment platform reported in the Introduction: an 80-core CPU node with 503.58 GB RAM and an NVIDIA L40S accelerator. Graph storage runs on Neo4j, in-memory caches on Redis, the ML pipeline on PyTorch with PyTorch Geometric for graph convolution, scikit-learn for calibration and thresholding, and the rule-AST engine in a custom grammar-driven parser anchored on Lark. The graph training, calibration, and runtime invariant run inside a single \texttt{turret.runtime} container. Table~\ref{tab:deployment_stack} summarizes the deployment stack components.
 
-\begin{table*}[htbp]
+\begin{table*}[t!]
 \caption{Deployment Stack Snapshot and Technical Environment.}
 \label{tab:deployment_stack}
 \centering
