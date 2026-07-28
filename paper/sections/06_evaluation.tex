@@ -2,11 +2,11 @@
 
 \subsection{Datasets}
 
-TURRET OS is evaluated on three corpora with distinct provenance histories. D5 Synthetic-Tenant Pilot (primary operational regime): a purpose-built anonymised enterprise corpus of 35 users $\times$ 90 days $\times$ 2,431 activity records, harvested by the TURRET OS Layer-1 cross-format pipeline, validated and proactively tagged by Security Operations analysts, with \texttt{OOD\_LAB\_EXFILTRATOR} injected into the generator without appearing in the training split---i.e. a true held-out regime. D3 TSEC (reproducible comparison regime): a 500-user $\times$ 365-day corpus yielding 141,657 user-day activity records with a 1.68\% positive rate, drawn from the publicly available TSEC insider-threat lineage so the calibrated single-layer and multi-layer figures can be compared against the published baselines \citep{gao2023dtgi, li2023tgcnda, xiao2024sentinel, xiao2022robust}. D1/D2 CERT (deferred public comparison): D1 (CERT r4.2) and D2 (CERT r5.2) require the SEI Data Use Agreement; their inclusion is permitted after the research-access request is granted. Until then, the public-comparison window keeps D3 TSEC as the primary track, in line with the Graebel protocol \citep{mavroeidis2018framework}.
+TURRET OS is evaluated on three corpora with distinct provenance histories. D5 Synthetic-Tenant Pilot (primary operational regime): a purpose-built anonymised enterprise corpus of 35 users $\times$ 90 days $\times$ 2,431 activity records, harvested by the TURRET OS Layer-1 cross-format pipeline, validated and proactively tagged by Security Operations analysts, with \texttt{OOD\_LAB\_EXFILTRATOR} injected into the generator without appearing in the training split (i.e. a true held-out regime). D3 TSEC (reproducible comparison regime): a 500-user $\times$ 365-day corpus yielding 141,657 user-day activity records with a 1.68\% positive rate, drawn from the publicly available TSEC insider-threat lineage so the calibrated single-layer and multi-layer figures can be compared against the published baselines \citep{gao2023dtgi, li2023tgcnda, xiao2024sentinel, xiao2022robust}. D1/D2 CERT (deferred public comparison): D1 (CERT r4.2) and D2 (CERT r5.2) require the SEI Data Use Agreement; their inclusion is permitted after the research-access request is granted. Until then, the public-comparison window keeps D3 TSEC as the primary track, in line with the Graebel protocol \citep{mavroeidis2018framework}.
 
 \subsection{Detection Performance Against Published Baselines}
 
-On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned to the 0.5\% FPR operating regime, the full-stack TURRET OS detector reports ROC-AUC 0.9997, F1@0.5\% FPR 0.8774, MCC 0.9770. These figures exceed the published baselines surveyed in Section 2: PS0 \citep{le2019machine, le2020analyzing} at ROC-AUC 0.92, F1 0.88, TTD 14 minutes; MEWRGNN at ROC-AUC 0.94, F1 0.87 \citep{xiao2022robust}; DTGI at ROC-AUC 0.91, F1 0.86 \citep{gao2023dtgi}; TGCN-DA at ROC-AUC 0.95, F1 0.89 \citep{li2023tgcnda}; and SENTINEL at ROC-AUC 0.93, F1 0.88 \citep{xiao2024sentinel}. On the D5 \texttt{OOD\_LAB\_EXFILTRATOR} held-out profile, full-stack TURRET OS reports ROC-AUC 0.9928, F1 0.8936, MCC 0.9539. This is the first reproduction-grade multi-layer figure reported on a synthetic tenant corpus and uniquely ties the operating threshold to F1 at 0.5\% FPR---a precision-critical deployability regime absent from prior benchmark protocols.
+On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned to the 0.5\% FPR operating regime, the full-stack TURRET OS detector reports ROC-AUC 0.9997, F1@0.5\% FPR 0.8774, MCC 0.9770. These figures exceed the published baselines surveyed in Section 2: PS0 \citep{le2019machine, le2020analyzing} at ROC-AUC 0.92, F1 0.88, TTD 14 minutes; MEWRGNN at ROC-AUC 0.94, F1 0.87 \citep{xiao2022robust}; DTGI at ROC-AUC 0.91, F1 0.86 \citep{gao2023dtgi}; TGCN-DA at ROC-AUC 0.95, F1 0.89 \citep{li2023tgcnda}; and SENTINEL at ROC-AUC 0.93, F1 0.88 \citep{xiao2024sentinel}. On the D5 \texttt{OOD\_LAB\_EXFILTRATOR} held-out profile, full-stack TURRET OS reports ROC-AUC 0.9928, F1 0.8936, MCC 0.9539. This is the first reproduction-grade multi-layer figure reported on a synthetic tenant corpus and uniquely ties the operating threshold to F1 at 0.5\% FPR, establishing a precision-critical deployability regime absent from prior benchmark protocols.
 
 \begin{table*}[htbp]
 \caption{Detection Performance vs Published Baselines across Evaluation Tracks.}
@@ -19,13 +19,13 @@ On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned
 \toprule
 \textbf{Method} & \textbf{Corpus} & \textbf{Split} & \textbf{ROC-AUC} & \textbf{F1} & \textbf{MCC} & \textbf{F1@0.5\%FPR} & \textbf{TTD (min)} \\
 \midrule
-PS0 \citep{le2019machine, le2020analyzing} & D2 CERT r5.2 & Random / time-aware & 0.92 & 0.88 & --- & --- & 14 \\
-MEWRGNN \citep{xiao2022robust} & D2 CERT r5.2 & Standard & 0.94 & 0.87 & --- & --- & --- \\
-DTGI \citep{gao2023dtgi} & D2 CERT r5.2 & Imbalance-aware & 0.91 & 0.86 & --- & --- & --- \\
-TGCN-DA \citep{li2023tgcnda} & D2 CERT r5.2 / D3 & Augmentation-aware & 0.95 & 0.89 & --- & --- & --- \\
-SENTINEL \citep{xiao2024sentinel} & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88 & --- & --- & --- \\
-\textbf{TURRET OS} & \textbf{D3 TSEC} & \textbf{60-30-10 chrono} & \textbf{0.9997} & --- & \textbf{0.9770} & \textbf{0.8774} & --- \\
-\textbf{TURRET OS} & \textbf{D5 OOD Hold-out} & \textbf{Hold-out chrono} & \textbf{0.9928} & \textbf{0.8936} & \textbf{0.9539} & --- & --- \\
+PS0 \citep{le2019machine, le2020analyzing} & D2 CERT r5.2 & Random / time-aware & 0.92 & 0.88 & -- & -- & 14 \\
+MEWRGNN \citep{xiao2022robust} & D2 CERT r5.2 & Standard & 0.94 & 0.87 & -- & -- & -- \\
+DTGI \citep{gao2023dtgi} & D2 CERT r5.2 & Imbalance-aware & 0.91 & 0.86 & -- & -- & -- \\
+TGCN-DA \citep{li2023tgcnda} & D2 CERT r5.2 / D3 & Augmentation-aware & 0.95 & 0.89 & -- & -- & -- \\
+SENTINEL \citep{xiao2024sentinel} & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88 & -- & -- & -- \\
+\textbf{TURRET OS} & \textbf{D3 TSEC} & \textbf{60-30-10 chrono} & \textbf{0.9997} & -- & \textbf{0.9770} & \textbf{0.8774} & -- \\
+\textbf{TURRET OS} & \textbf{D5 OOD Hold-out} & \textbf{Hold-out chrono} & \textbf{0.9928} & \textbf{0.8936} & \textbf{0.9539} & -- & -- \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -33,20 +33,20 @@ SENTINEL \citep{xiao2024sentinel} & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/fig2_roc_d3.pdf}
-\caption{ROC Curve --- TURRET OS on D3 TSEC (60-30-10 chronological split).}
+\caption{ROC Curve: TURRET OS on D3 TSEC (60-30-10 chronological split).}
 \label{fig:roc_d3}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/fig3_confusion_d3.pdf}
-\caption{Confusion Matrix --- D3 TSEC @ 0.5\% FPR (F1 = 0.8774, MCC = 0.9770).}
+\caption{Confusion Matrix: D3 TSEC @ 0.5\% FPR (F1 = 0.8774, MCC = 0.9770).}
 \label{fig:confusion_d3}
 \end{figure}
 
 \subsection{Layer Ablation Study and Leakage Audit}
 
-A controlled ablation study removes each layer in turn and re-trains a Chrono60-30-10 model on D5. Full stack reaches ROC-AUC 0.9928, F1@0.5\% FPR 0.8936, MCC 0.9539. No metadata harvest (drop L1): $+8.6\%$ AUC drop and $-41.0\%$ F1 collapse at 0.5\% FPR---confirming that the cross-format metadata layer is the primary signal anchor against OOD adversary profiles. No graph topology (drop L2): $+1.4\%$ AUC drop and $-13.9\%$ F1 collapse---confirming that topology contributes a smaller but non-zero incremental lift. No rule AST (drop L3): $+3.2\%$ AUC drop and $-22.5\%$ F1 collapse---confirming that rules continue to carry semantic weight beyond the GNN prediction. No multi-layer fusion (drop L3.5): reverts to a single-layer feature detector that collapses to ROC-AUC 0.7363 with a 26.25\% drop under the OOD credential-phishing attacker. After every ablation the runtime safety invariant re-checks the top-5 SHAP feature importances against the operational whitelist (\texttt{access\_novelty\_score}, \texttt{metadata\_stripped}, \texttt{off\_hours\_multiplier}, \texttt{identity\_proxy}, \texttt{copy\_to\_removable}, \texttt{n\_file\_accesses}, \texttt{outbound\_email}, \texttt{access\_hour}); on D5 the dominant feature is \texttt{copy\_to\_removable}, sitting in the whitelist and therefore confirming zero label leakage at deployment \citep{li2021threat, mavroeidis2018framework}.
+A controlled ablation study removes each layer in turn and re-trains a Chrono60-30-10 model on D5. Full stack reaches ROC-AUC 0.9928, F1@0.5\% FPR 0.8936, MCC 0.9539. No metadata harvest (drop L1): $+8.6\%$ AUC drop and $-41.0\%$ F1 collapse at 0.5\% FPR, confirming that the cross-format metadata layer is the primary signal anchor against OOD adversary profiles. No graph topology (drop L2): $+1.4\%$ AUC drop and $-13.9\%$ F1 collapse, confirming that topology contributes a smaller but non-zero incremental lift. No rule AST (drop L3): $+3.2\%$ AUC drop and $-22.5\%$ F1 collapse, confirming that rules continue to carry semantic weight beyond the GNN prediction. No multi-layer fusion (drop L3.5): reverts to a single-layer feature detector that collapses to ROC-AUC 0.7363 with a 26.25\% drop under the OOD credential-phishing attacker. After every ablation the runtime safety invariant re-checks the top-5 SHAP feature importances against the operational whitelist (\texttt{access\_novelty\_score}, \texttt{metadata\_stripped}, \texttt{off\_hours\_multiplier}, \texttt{identity\_proxy}, \texttt{copy\_to\_removable}, \texttt{n\_file\_accesses}, \texttt{outbound\_email}, \texttt{access\_hour}); on D5 the dominant feature is \texttt{copy\_to\_removable}, sitting in the whitelist and therefore confirming zero label leakage at deployment \citep{li2021threat, mavroeidis2018framework}.
 
 \begin{table*}[htbp]
 \caption{Layer Ablation Study on D5 OOD\_LAB\_EXFILTRATOR Hold-out Corpus.}
@@ -59,11 +59,11 @@ A controlled ablation study removes each layer in turn and re-trains a Chrono60-
 \toprule
 \textbf{Configuration} & \textbf{ROC-AUC} & \textbf{AUC $\Delta$ vs Full} & \textbf{F1@0.5\%FPR} & \textbf{F1 $\Delta$ vs Full} & \textbf{MCC} \\
 \midrule
-\textbf{Full Stack (L1 + L2 + L3 + L3.5)} & \textbf{0.9928} & --- & \textbf{0.8936} & --- & \textbf{0.9539} \\
-Drop L1 (no metadata harvest) & 0.9075 & $-8.6\%$ & 0.5270 & $-41.0\%$ & --- \\
-Drop L2 (no graph topology) & 0.9791 & $-1.4\%$ & 0.7694 & $-13.9\%$ & --- \\
-Drop L3 (no rule AST) & 0.9610 & $-3.2\%$ & 0.6925 & $-22.5\%$ & --- \\
-Drop L3.5 (single-layer feature) & 0.7363 & $-26.25\%$ & --- & single-layer collapse & --- \\
+\textbf{Full Stack (L1 + L2 + L3 + L3.5)} & \textbf{0.9928} & -- & \textbf{0.8936} & -- & \textbf{0.9539} \\
+Drop L1 (no metadata harvest) & 0.9075 & $-8.6\%$ & 0.5270 & $-41.0\%$ & -- \\
+Drop L2 (no graph topology) & 0.9791 & $-1.4\%$ & 0.7694 & $-13.9\%$ & -- \\
+Drop L3 (no rule AST) & 0.9610 & $-3.2\%$ & 0.6925 & $-22.5\%$ & -- \\
+Drop L3.5 (single-layer feature) & 0.7363 & $-26.25\%$ & -- & single-layer collapse & -- \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -77,7 +77,7 @@ Drop L3.5 (single-layer feature) & 0.7363 & $-26.25\%$ & --- & single-layer coll
 
 \subsection{Pareto Precision-Recall Frontier over Component Ablations}
 
-Across the ablation grid in \S6.3 the Pareto precision-recall frontier traces a staircase from "no metadata" to "no L3.5"; the headline point at F1 0.8936 sets the operating-point anchor. The contribution of each layer in PR space is: L1 contributes $+41.0\%$ F1, L2 contributes $+13.9\%$ F1, L3 contributes $+22.5\%$ F1, and the multi-layer fusion retains the boundary-conditional cases that no single layer catches. The Pareto frontier also identifies the no-L3.5 (single-layer feature) collapse as the dominant catastrophic point---confirming that the architectural rescue is not a smoothing artefact but a structural break in OOD detection.
+Across the ablation grid in \S6.3 the Pareto precision-recall frontier traces a staircase from "no metadata" to "no L3.5"; the headline point at F1 0.8936 sets the operating-point anchor. The contribution of each layer in PR space is: L1 contributes $+41.0\%$ F1, L2 contributes $+13.9\%$ F1, L3 contributes $+22.5\%$ F1, and the multi-layer fusion retains the boundary-conditional cases that no single layer catches. The Pareto frontier also identifies the no-L3.5 (single-layer feature) collapse as the dominant catastrophic point, confirming that the architectural rescue is not a smoothing artefact but a structural break in OOD detection.
 
 \begin{figure}[htbp]
 \centering
@@ -88,7 +88,7 @@ Across the ablation grid in \S6.3 the Pareto precision-recall frontier traces a 
 
 \subsection{Single-Layer vs Multi-Layer Adversarial Robustness}
 
-OCC-CP-MULTIROC: Multi-layer ROC-AUC 0.9572, single-layer ROC-AUC 0.7363. The absolute plus is $+0.2209$ AUC units, or $+22.09\%$ relative to the single-layer baseline. AUCA: single-layer 26.25\% drop versus multi-layer 4.12\% drop---a $\Delta = 22.13\%$ structural advantage that holds the multi-layer detector comfortably inside the $\le 5\%$ AUC-drop robustness bound declared in \S3.4, while the single-layer feature detector exceeds it by an order of magnitude. Mimicry, metadata-strip, and identity-proxy attacks each induce $\le 5\%$ AUC drops on the multi-layer stack, confirming the architectural rescue generalises beyond the OCC-CP benchmark. Robustness is bounded against four canonical attackers running on D3/D5 test splits \citep{li2021threat, mavroeidis2018framework}.
+OCC-CP-MULTIROC: Multi-layer ROC-AUC 0.9572, single-layer ROC-AUC 0.7363. The absolute plus is $+0.2209$ AUC units, or $+22.09\%$ relative to the single-layer baseline. AUCA: single-layer 26.25\% drop versus multi-layer 4.12\% drop, representing a $\Delta = 22.13\%$ structural advantage that holds the multi-layer detector comfortably inside the $\le 5\%$ AUC-drop robustness bound declared in \S3.4, while the single-layer feature detector exceeds it by an order of magnitude. Mimicry, metadata-strip, and identity-proxy attacks each induce $\le 5\%$ AUC drops on the multi-layer stack, confirming the architectural rescue generalises beyond the OCC-CP benchmark. Robustness is bounded against four canonical attackers running on D3/D5 test splits \citep{li2021threat, mavroeidis2018framework}.
 
 \begin{table*}[htbp]
 \caption{Adversarial Robustness: Single-Layer vs Multi-Layer Across Canonical Attacker Vectors.}
@@ -112,7 +112,7 @@ OCC-CP & 0.7363 & 0.9572 & $+0.2209$ & $26.25\%$ & $4.12\%$ & OK (multi) / FAIL 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/fig5_occcp_rescue.pdf}
-\caption{OCC-CP Robustness --- Multi-Layer Architectural Rescue Overlay.}
+\caption{OCC-CP Robustness: Multi-Layer Architectural Rescue Overlay.}
 \label{fig:occcp_rescue}
 \end{figure}
 

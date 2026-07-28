@@ -9,7 +9,7 @@ The pipeline has four logically distinct layers plus a multi-layer joint-inferen
 \label{fig:architecture}
 \end{figure}
 
-\subsection{Layer 1 --- Cross-Format Metadata Harvest}
+\subsection{Layer 1: Cross-Format Metadata Harvest}
 
 Ingests OOXML (legacy and current), DOCX (legacy and current), XLSX, PPTX, PDF, DWG, EML, EPIC payload, bitmap images, and git commits \citep{didriksen2014ooxml, fu2015docx}. Extracted fields include \texttt{author}, \texttt{creator}, \texttt{lastModifiedBy}, \texttt{revision\_id}, \texttt{rsid\_originator}, \texttt{rsid\_revisions}, \texttt{parent\_rsid\_chain}, \texttt{total\_edit\_count}, \texttt{last\_modification\_date}, \texttt{git\_user\_email}, and \texttt{creation\_timestamp}. The L1 store exposes twelve derived feature columns: \texttt{access\_novelty\_score}, \texttt{metadata\_stripped}, \texttt{off\_hours\_multiplier}, \texttt{identity\_proxy}, \texttt{copy\_to\_removable}, \texttt{n\_file\_accesses}, \texttt{outbound\_email}, \texttt{access\_hour}, \texttt{revshare}, \texttt{comm\_share\_by\_hour}, \texttt{write\_open\_share}, and \texttt{bytes\_used\_relative} \citep{umair2024exif2vec, yasenenko2025evaluating}. A six-column evidence bundle underlies chain of custody end-to-end.
 
@@ -20,11 +20,11 @@ Ingests OOXML (legacy and current), DOCX (legacy and current), XLSX, PPTX, PDF, 
 \label{fig:l1_coverage}
 \end{figure}
 
-\subsection{Layer 2 --- Knowledge Graph Representation}
+\subsection{Layer 2: Knowledge Graph Representation}
 
 Extracted metadata is materialised into a Neo4j graph with a fixed entity-relational schema (\texttt{User}, \texttt{File}, \texttt{Artifact}, \texttt{Action}, \texttt{Process}, \texttt{Resource}) connected by typed relations (\texttt{CREATED}, \texttt{ACCESSED}, \texttt{MODIFIED}, \texttt{EMAILED}, \texttt{TYPED\_PRINTED\_RECEIPT}, \texttt{COPIED\_TO\_REMOVABLE}, \texttt{SAME\_FINGERPRINT\_AS}, \texttt{INHERITED\_FROM}, \texttt{PKG\_OPENED}) \citep{li2021threat, yusof2025provcon}. Each node carries attribute provenance satisfying W3C PROV record constraints \citep{mavroeidis2018framework}. The graph is loaded transactionally and consumed by both L3 and L3.5.
 
-\subsection{Layer 3 --- Rule AST Engine}
+\subsection{Layer 3: Rule AST Engine}
 
 A grammar-driven rule engine operating directly on L1 stores and L2 subgraphs. Predicates compile to a structured AST (predicate tree + source-spans + required relations) evaluated in-tree at millisecond latency. Implemented rule families: R1 Identity-Out-of-Profile (off-hours activity), R2 Mass-Download ($>500$ files/day), R3 Outbound-Email Burst, R4 Removable-Media Withdrawal, R5 Login Failure Storm, R6 Printing Burst, R7 Long-Term Network-Share Use, and R8 OOD Credential Use (clean traffic on stolen credentials during business hours, the canonical OOD phishing regime) \citep{li2021threat, mavroeidis2018framework}. Each fired rule is logged with a confidence value into the stepwise evidence bundle.
 
@@ -35,14 +35,14 @@ A grammar-driven rule engine operating directly on L1 stores and L2 subgraphs. P
 \label{fig:rule_profile}
 \end{figure}
 
-\subsection{Layer 3.5 --- Multi-Layer Graph Neural Network}
+\subsection{Layer 3.5: Multi-Layer Graph Neural Network}
 
 A multi-layer GraphSAGE trained jointly on L1 features (twelve columns) and L2 graph topology, implemented on PyTorch Geometric with a 60-30-10 chronological split (first 60\% train, next 30\% validate, last 10\% locked at 0.5\% FPR operating regime) \citep{gao2023dtgi, li2023tgcnda, xiao2024sentinel, xiao2022robust}. Calibrated via \texttt{CalibratedClassifierCV(method="isotonic", cv=3)}. Target on D3 TSEC: ROC-AUC 0.9997, F1@0.5\%FPR 0.8774, MCC 0.9770. Feature importances from SHAP are audited against a fixed operational whitelist invariant for zero label leakage \citep{li2021threat, mavroeidis2018framework}.
 
-\subsection{Layer 4 --- W3C-PROV-Aligned Evidence Packaging}
+\subsection{Layer 4: W3C-PROV-Aligned Evidence Packaging}
 
 Takes (\text{L3.5 score}, \text{L1 feature row}, \text{L3 fired rules}, \text{L2 subgraph}) and emits a tamper-evident pack per alert: (\texttt{Alert-UID}, \texttt{Provenance-Bundle}, \texttt{Merkle-Root}, \texttt{Digest-Hash}, \texttt{Signed-Merkle-Root}, \texttt{Ed25519-Signature-Public-Key}, \texttt{Audit-Trail-Reference}, \texttt{Operator-Identity}) rendered as a W3C PROV document and audit-workbench export \citep{aki2025provenance, li2021threat, mavroeidis2018framework, shoderu2025dfrsaas, yusof2025provcon}. SHA-256 and BLAKE3 hashing anchor chain of custody; Ed25519 over the Merkle root provides cryptographic integrity verification. The cumulative evidence is committed to PROV using PROVCON-style record types, providing a portable container for analyst inspection \citep{shoderu2025dfrsaas, yusof2025provcon}.
 
 \subsection{Multi-Layer Joint Inference}
 
-Executed in two phases. Phase A --- Evidence emission: L1 stores materialise into L2; L3 fires rules on L1/L2; L3.5 produces calibrated anomaly scores; L4 bundles all signals into a tamper-evident record. Phase B --- Anomaly calibration: if individual signals fall below the precision operating threshold but their joint rule-state raises the criticality indicator, the L4 inferer raises an alert at the designated operator/monitoring mode \citep{kurniawan2022krystal, mavroeidis2018framework, ren2022cskg4apt}. Phase A preserves forensic evidence for every suspicious state; Phase B releases alerts only when joint evidence crosses threshold. The architecture is the concrete realisation of the \textit{Insight Into Insiders and IT} taxonomy mapped onto a deployable pipeline \citep{li2021threat, mavroeidis2018framework, ren2022cskg4apt}.
+Executed in two phases. Phase A (Evidence emission): L1 stores materialise into L2; L3 fires rules on L1/L2; L3.5 produces calibrated anomaly scores; L4 bundles all signals into a tamper-evident record. Phase B (Anomaly calibration): if individual signals fall below the precision operating threshold but their joint rule-state raises the criticality indicator, the L4 inferer raises an alert at the designated operator/monitoring mode \citep{kurniawan2022krystal, mavroeidis2018framework, ren2022cskg4apt}. Phase A preserves forensic evidence for every suspicious state; Phase B releases alerts only when joint evidence crosses threshold. The architecture is the concrete realisation of the \textit{Insight Into Insiders and IT} taxonomy mapped onto a deployable pipeline \citep{li2021threat, mavroeidis2018framework, ren2022cskg4apt}.
