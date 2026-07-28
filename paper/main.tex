@@ -40,37 +40,41 @@
 
 \let\printorcid\relax
 
-% Suppress Elsevier footer lines completely
+% Completely remove headers and footers from ALL pages (no "Preprint submitted to Elsevier" or author running heads)
 \makeatletter
-\def\ps@cas{\let\@mkboth\@gobbletwo
+\def\ps@cas{%
+  \let\@mkboth\@gobbletwo
   \def\@oddhead{}%
   \def\@evenhead{}%
   \def\@oddfoot{}%
   \def\@evenfoot{}%
 }
-\def\ps@firstpage{\let\@mkboth\@gobbletwo
+\def\ps@firstpage{%
+  \let\@mkboth\@gobbletwo
   \def\@oddhead{}%
   \def\@evenhead{}%
   \def\@oddfoot{}%
   \def\@evenfoot{}%
 }
+\let\ps@headings\ps@cas
+\let\ps@plain\ps@cas
 \makeatother
+\pagestyle{empty}
 
 % Float placement controls to prevent isolated table pages
-\renewcommand{\topfraction}{0.9}
-\renewcommand{\bottomfraction}{0.8}
-\renewcommand{\textfraction}{0.1}
-\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
 
 \begin{document}
 
 \let\WriteBookmarks\relax
 
-\shorttitle{\textbf{TURRET OS}: Multi-Layered Graph \& Rule-AST Architecture}
+\shorttitle{}
+\shortauthors{}
 
 \title[mode=title]{TURRET OS: Multi-Layered Graph and Rule-AST Architecture Rescuing Insider Threat Detection Against Out-of-Distribution Adversaries}
-
-\shortauthors{Ali Hamza et al.}
 
 \author[1]{Ali Hamza}
 \cormark[1]
@@ -100,6 +104,7 @@ Out-of-Distribution Robustness
 \end{keywords}
 
 \maketitle
+\thispagestyle{empty}
 
 % -----------------------------------------------------------------------------
 % Body Sections

@@ -15,16 +15,16 @@ On D3 TSEC with the 60-30-10 chronological split and deployment threshold pinned
 \centering
 \footnotesize
 \renewcommand{\arraystretch}{1.25}
-\setlength{\tabcolsep}{6pt}
-\begin{tabularx}{\textwidth}{l l X c c c c c}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{p{2.5cm} X X c c c c c}
 \toprule
 \textbf{Method} & \textbf{Corpus} & \textbf{Split} & \textbf{ROC-AUC} & \textbf{F1} & \textbf{MCC} & \textbf{F1@0.5\%FPR} & \textbf{TTD (min)} \\
 \midrule
-PS0 \citep{le2019machine, le2020analyzing} & D2 CERT r5.2 & Random / time-aware & 0.92 & 0.88 & -- & -- & 14 \\
-MEWRGNN \citep{xiao2022robust} & D2 CERT r5.2 & Standard & 0.94 & 0.87 & -- & -- & -- \\
-DTGI \citep{gao2023dtgi} & D2 CERT r5.2 & Imbalance-aware & 0.91 & 0.86 & -- & -- & -- \\
-TGCN-DA \citep{li2023tgcnda} & D2 CERT r5.2 / D3 & Augmentation-aware & 0.95 & 0.89 & -- & -- & -- \\
-SENTINEL \citep{xiao2024sentinel} & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88 & -- & -- & -- \\
+PS0 & D2 CERT r5.2 & Random / time-aware & 0.92 & 0.88 & -- & -- & 14 \\
+MEWRGNN & D2 CERT r5.2 & Standard & 0.94 & 0.87 & -- & -- & -- \\
+DTGI & D2 CERT r5.2 & Imbalance-aware & 0.91 & 0.86 & -- & -- & -- \\
+TGCN-DA & D2 CERT r5.2 / D3 & Augmentation-aware & 0.95 & 0.89 & -- & -- & -- \\
+SENTINEL & D2 CERT r5.2 & Multi-timescale & 0.93 & 0.88 & -- & -- & -- \\
 \textbf{TURRET OS} & \textbf{D3 TSEC} & \textbf{60-30-10 chrono} & \textbf{0.9997} & -- & \textbf{0.9770} & \textbf{0.8774} & -- \\
 \textbf{TURRET OS} & \textbf{D5 OOD Hold-out} & \textbf{Hold-out chrono} & \textbf{0.9928} & \textbf{0.8936} & \textbf{0.9539} & -- & -- \\
 \bottomrule
@@ -54,9 +54,9 @@ A controlled ablation study removes each layer in turn and re-trains a Chrono60-
 \label{tab:layer_ablation}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.3}
-\setlength{\tabcolsep}{10pt}
-\begin{tabularx}{\textwidth}{X X X X X X}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{p{5.8cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Configuration} & \textbf{ROC-AUC} & \textbf{AUC $\Delta$ vs Full} & \textbf{F1@0.5\%FPR} & \textbf{F1 $\Delta$ vs Full} & \textbf{MCC} \\
 \midrule
@@ -78,7 +78,7 @@ Drop L3.5 (single-layer feature) & 0.7363 & $-26.25\%$ & -- & single-layer colla
 
 \subsection{Pareto Precision-Recall Frontier over Component Ablations}
 
-Across the ablation grid in \S\ref{sec:evaluation}.3 the Pareto precision-recall frontier traces a staircase from "no metadata" to "no L3.5"; the headline point at F1 0.8936 sets the operating-point anchor. The contribution of each layer in PR space is: L1 contributes $+41.0\%$ F1, L2 contributes $+13.9\%$ F1, L3 contributes $+22.5\%$ F1, and the multi-layer fusion retains the boundary-conditional cases that no single layer catches. The Pareto frontier also identifies the no-L3.5 (single-layer feature) collapse as the dominant catastrophic point, confirming that the architectural rescue is not a smoothing artefact but a structural break in OOD detection. Figure~\ref{fig:pareto_ablation} illustrates the Pareto frontier across component ablations.
+Across the ablation grid in Section~\ref{sec:evaluation}.3 the Pareto precision-recall frontier traces a staircase from "no metadata" to "no L3.5"; the headline point at F1 0.8936 sets the operating-point anchor. The contribution of each layer in PR space is: L1 contributes $+41.0\%$ F1, L2 contributes $+13.9\%$ F1, L3 contributes $+22.5\%$ F1, and the multi-layer fusion retains the boundary-conditional cases that no single layer catches. The Pareto frontier also identifies the no-L3.5 (single-layer feature) collapse as the dominant catastrophic point, confirming that the architectural rescue is not a smoothing artefact but a structural break in OOD detection. Figure~\ref{fig:pareto_ablation} illustrates the Pareto frontier across component ablations.
 
 \begin{figure}[htbp]
 \centering
@@ -89,16 +89,16 @@ Across the ablation grid in \S\ref{sec:evaluation}.3 the Pareto precision-recall
 
 \subsection{Single-Layer vs Multi-Layer Adversarial Robustness}
 
-OCC-CP-MULTIROC: Multi-layer ROC-AUC 0.9572, single-layer ROC-AUC 0.7363. The absolute plus is $+0.2209$ AUC units, or $+22.09\%$ relative to the single-layer baseline. AUCA: single-layer 26.25\% drop versus multi-layer 4.12\% drop, representing a $\Delta = 22.13\%$ structural advantage that holds the multi-layer detector comfortably inside the $\le 5\%$ AUC-drop robustness bound declared in \S\ref{sec:threat_model}.4, while the single-layer feature detector exceeds it by an order of magnitude. Mimicry, metadata-strip, and identity-proxy attacks each induce $\le 5\%$ AUC drops on the multi-layer stack, confirming the architectural rescue generalises beyond the OCC-CP benchmark. Robustness is bounded against four canonical attackers running on D3/D5 test splits \citep{li2021threat, mavroeidis2018framework}. Table~\ref{tab:adversarial_robustness} presents adversarial robustness across attacker vectors, complemented by Figure~\ref{fig:occcp_rescue} and Figure~\ref{fig:robustness_bound}.
+OCC-CP-MULTIROC: Multi-layer ROC-AUC 0.9572, single-layer ROC-AUC 0.7363. The absolute plus is $+0.2209$ AUC units, or $+22.09\%$ relative to the single-layer baseline. AUCA: single-layer 26.25\% drop versus multi-layer 4.12\% drop, representing a $\Delta = 22.13\%$ structural advantage that holds the multi-layer detector comfortably inside the $\le 5\%$ AUC-drop robustness bound declared in Section~\ref{sec:threat_model}.4, while the single-layer feature detector exceeds it by an order of magnitude. Mimicry, metadata-strip, and identity-proxy attacks each induce $\le 5\%$ AUC drops on the multi-layer stack, confirming the architectural rescue generalises beyond the OCC-CP benchmark. Robustness is bounded against four canonical attackers running on D3/D5 test splits \citep{li2021threat, mavroeidis2018framework}. Table~\ref{tab:adversarial_robustness} presents adversarial robustness across attacker vectors, complemented by Figure~\ref{fig:occcp_rescue} and Figure~\ref{fig:robustness_bound}.
 
 \begin{table*}[htbp]
 \caption{Adversarial Robustness: Single-Layer vs Multi-Layer Across Canonical Attacker Vectors.}
 \label{tab:adversarial_robustness}
 \centering
 \footnotesize
-\renewcommand{\arraystretch}{1.25}
-\setlength{\tabcolsep}{6pt}
-\begin{tabularx}{\textwidth}{p{2.6cm} X X X X X X}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{p{2.6cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Attacker Vector} & \textbf{Single AUC} & \textbf{Multi AUC} & \textbf{$\Delta$} & \textbf{Single Drop \%} & \textbf{Multi Drop \%} & \textbf{Robustness Bound ($\le 5\%$)} \\
 \midrule
@@ -126,7 +126,7 @@ OCC-CP & 0.7363 & 0.9572 & $+0.2209$ & $26.25\%$ & $4.12\%$ & OK (multi) / FAIL 
 
 \subsection{ISO/IEC 27043 Forensic-Readiness Attribute Coverage}
 
-End-to-end mapping of \textbf{TURRET OS} deployment to the eight ISO/IEC 27043 readiness attributes yields 100\% coverage: Identification \checkmark\ unique record and alert UIDs emitted by L4 \citep{aki2025provenance, shoderu2025dfrsaas}; Collection \checkmark\ L1 harvest pipeline documented and versioned \citep{shoderu2026dfrconference}; Acquisition \checkmark\ raw artefacts committed under SHA-256 + BLAKE3 \citep{shoderu2025dfrsaas}; Preservation \checkmark\ WORM storage with signed provenance records \citep{aki2025provenance}; Analysis \checkmark\ SHAP + GNNExplainer provenance subgraphs exported per alert \citep{mavroeidis2018framework}; Presentation \checkmark\ analyst-UI workbench export format \citep{shoderu2025dfrsaas}; Chain of Custody \checkmark\ operator signature and timestamp recorded per access \citep{aki2025provenance}; Integrity Verification \checkmark\ Merkle root signed with Ed25519 inside the L4 payload \citep{yusof2025provcon}. No prior deployed insider-threat system reports 100\% attribute coverage, making \textbf{TURRET OS} the first end-to-end ISO/IEC 27043-aligned insider-threat detector. Figure~\ref{fig:iso27043_radar} details attribute coverage.
+End-to-end evaluation confirms that \textbf{TURRET OS} satisfies 100\% attribute coverage across all eight ISO/IEC 27043 forensic readiness attributes (Identification, Collection, Acquisition, Preservation, Analysis, Presentation, Chain of Custody, and Integrity Verification). Table~\ref{tab:iso27043_mapping} maps each mandatory attribute to its corresponding implementation module, cryptographic primitives, and verification status in Layer 4. Figure~\ref{fig:iso27043_radar} presents the 100\% attribute coverage radar diagram. No prior deployed insider-threat system achieves complete attribute coverage, making \textbf{TURRET OS} the first forensic-readiness-aligned insider detector.
 
 \begin{figure}[htbp]
 \centering
