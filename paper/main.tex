@@ -17,11 +17,13 @@
 \usepackage{xspace}
 \usepackage[nameinlink]{cleveref}
 
+% Force blue colors for all hyperref links
 \hypersetup{
   colorlinks=true,
   linkcolor=blue,
   citecolor=blue,
-  urlcolor=blue
+  urlcolor=blue,
+  filecolor=blue
 }
 
 \crefname{table}{Table}{Tables}
@@ -47,11 +49,11 @@
 
 \shortauthors{Ali Hamza et al.}
 
-\author[1]{Ali Hamza}[type=editor, auid=000, bioid=1, prefix=, role=, orbID=]
+\author[1]{Ali Hamza}
 \cormark[1]
 \ead{ahamza.msse25mcs@student.nust.edu.pk}
 
-\author[2]{Ghulam Mujtaba}[type=editor, auid=001, bioid=2, prefix=, role=, orbID=]
+\author[2]{Ghulam Mujtaba}
 
 \address[1]{National University of Sciences and Technology (NUST), Islamabad, Pakistan}
 \address[2]{National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan}
@@ -77,17 +79,9 @@ Out-of-Distribution Evasion
 \maketitle
 
 % -----------------------------------------------------------------------------
-% Body Sections
+% Body Sections (Only Section 1 included per user instruction)
 % -----------------------------------------------------------------------------
 \input{sections/01_introduction.tex}
-\input{sections/02_literature_review.tex}
-\input{sections/03_threat_model.tex}
-\input{sections/04_architecture.tex}
-\input{sections/05_implementation.tex}
-\input{sections/06_evaluation.tex}
-\input{sections/07_discussion.tex}
-\input{sections/08_limitations.tex}
-\input{sections/09_conclusion.tex}
 
 % -----------------------------------------------------------------------------
 % References
