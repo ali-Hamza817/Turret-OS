@@ -91,13 +91,10 @@
 \citation{shoderu2025dfrsaas,yusof2025provcon}
 \citation{kurniawan2022krystal,mavroeidis2018framework,ren2022cskg4apt}
 \citation{li2021threat,mavroeidis2018framework,ren2022cskg4apt}
-\bibstyle{plainnat}
-\bibdata{references}
-\bibcite{aki2025provenance}{{1}{2025}{{Aki et~al.}}{{Aki, Watarai, Okada, et~al.}}}
-\bibcite{didriksen2014ooxml}{{2}{2014}{{Didriksen}}{{}}}
-\bibcite{fu2015docx}{{3}{2015}{{Fu et~al.}}{{Fu, Sun, and Xi}}}
-\bibcite{gao2023dtgi}{{4}{2023}{{Gao et~al.}}{{Gao, Zhang, Wang, et~al.}}}
-\bibcite{garfinkel2013detecting}{{5}{2013}{{Garfinkel et~al.}}{{Garfinkel, Beebe, Liu, et~al.}}}
+\citation{didriksen2014ooxml,fu2015docx}
+\citation{umair2024exif2vec}
+\citation{yasenenko2025evaluating}
+\citation{shoderu2025dfrsaas,shoderu2026dfrconference}
 \@writefile{toc}{\contentsline {section}{\numberline {4}TURRET OS Architecture}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Layer 1 --- Cross-Format Metadata Harvest}{4}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Layer 2 --- Knowledge Graph Representation}{4}{subsection.4.2}\protected@file@percent }
@@ -105,6 +102,22 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Layer 3.5 --- Multi-Layer Graph Neural Network}{4}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Layer 4 --- W3C-PROV-Aligned Evidence Packaging}{4}{subsection.4.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Multi-Layer Joint Inference}{4}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Implementation}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Stack and Hardware Environment}{4}{subsection.5.1}\protected@file@percent }
+\citation{li2021threat,yusof2025provcon}
+\citation{mavroeidis2018framework}
+\citation{xiao2022robust}
+\citation{gao2023dtgi}
+\citation{xiao2024sentinel}
+\citation{li2023tgcnda}
+\citation{li2021threat,mavroeidis2018framework}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{aki2025provenance}{{1}{2025}{{Aki et~al.}}{{Aki, Watarai, Okada, et~al.}}}
+\bibcite{didriksen2014ooxml}{{2}{2014}{{Didriksen}}{{}}}
+\bibcite{fu2015docx}{{3}{2015}{{Fu et~al.}}{{Fu, Sun, and Xi}}}
+\bibcite{gao2023dtgi}{{4}{2023}{{Gao et~al.}}{{Gao, Zhang, Wang, et~al.}}}
+\bibcite{garfinkel2013detecting}{{5}{2013}{{Garfinkel et~al.}}{{Garfinkel, Beebe, Liu, et~al.}}}
 \bibcite{homoliak2018insight}{{6}{2018}{{Homoliak et~al.}}{{Homoliak, Toffalini, Guarnizo, et~al.}}}
 \bibcite{kurniawan2022krystal}{{7}{2022}{{Kurniawan et~al.}}{{Kurniawan, Ekelhart, Kiesling, et~al.}}}
 \bibcite{le2019machine}{{8}{2019}{{Le and Zincir-Heywood}}{{}}}
@@ -113,6 +126,11 @@
 \bibcite{li2021threat}{{11}{2021}{{Li et~al.}}{{Li, Chen, Yang, et~al.}}}
 \bibcite{mavroeidis2018framework}{{12}{2018}{{Mavroeidis et~al.}}{{Mavroeidis, Vishi, and J{\o }sang}}}
 \bibcite{mitra2021combating}{{13}{2021}{{Mitra et~al.}}{{Mitra, Piplai, Mittal, et~al.}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Harvest Pipelines per File Format}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Graph Schema and Loading Procedure}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}GraphSAGE Implementation and Training}{5}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Calibration and Threshold Optimisation}{5}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Runtime Safety Invariant}{5}{subsection.5.6}\protected@file@percent }
 \bibcite{ren2022cskg4apt}{{14}{2022}{{Ren et~al.}}{{Ren, Xiao, Zhou, et~al.}}}
 \bibcite{shoderu2025dfrsaas}{{15}{2025}{{Shoderu et~al.}}{{Shoderu, Baror, Makura, et~al.}}}
 \bibcite{shoderu2026dfrconference}{{16}{2026}{{Shoderu et~al.}}{{Shoderu, Baror, Modupe, et~al.}}}
@@ -123,8 +141,8 @@
 \bibcite{xiao2022robust}{{21}{2022}{{Xiao et~al.}}{{Xiao, Yang, Zhong, et~al.}}}
 \bibcite{yasenenko2025evaluating}{{22}{2025}{{Yasenenko}}{{}}}
 \bibcite{yusof2025provcon}{{23}{2025}{{Yusof et~al.}}{{Yusof, Li, Singh, et~al.}}}
-\csxdef{lastpage}{5}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Literature Review Summary Table Mapping Key Findings and Structural Limitations Across Prior Work.}}{6}{table.1}\protected@file@percent }
-\newlabel{tab:lit_review_summary}{{1}{6}{Literature Review Summary Table Mapping Key Findings and Structural Limitations Across Prior Work}{table.1}{}}
-\newlabel{tab:lit_review_summary@cref}{{[table][1][]1}{[1][3][]6}}
-\gdef \@abspage@last{6}
+\csxdef{lastpage}{6}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Literature Review Summary Table Mapping Key Findings and Structural Limitations Across Prior Work.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:lit_review_summary}{{1}{7}{Literature Review Summary Table Mapping Key Findings and Structural Limitations Across Prior Work}{table.1}{}}
+\newlabel{tab:lit_review_summary@cref}{{[table][1][]1}{[1][3][]7}}
+\gdef \@abspage@last{7}
