@@ -79,8 +79,10 @@ infra/neo4j/plugins/
 *.synctex.gz
 paper/els-cas.zip
 
-# Submission internal LaTeX compilation directory (keeps submission/*.pdf and submission/*.docx clean)
-submission/src/
+# Hide submission directory from GitHub
+submission/
 
 # Agents & workspace AI configs
 .agents/
+.gemini/
+.brain/
