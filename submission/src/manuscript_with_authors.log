@@ -1,0 +1,1712 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  29 JUL 2026 16:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**manuscript_with_authors.tex
+(./manuscript_with_authors.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column 
+articles
+\c@blind=\count187
+\@bls=\dimen140
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\skip48
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen144
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen145
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count196
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count197
+\leftroot@=\count198
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count199
+\DOTSCASE@=\count266
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen146
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count267
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count268
+\dotsspace@=\muskip16
+\c@parentequation=\count269
+\dspbrk@lvl=\count270
+\tag@help=\toks19
+\row@=\count271
+\column@=\count272
+\maxfields@=\count273
+\andhelp@=\toks20
+\eqnshift@=\dimen147
+\alignsep@=\dimen148
+\tagshift@=\dimen149
+\tagwidth@=\dimen150
+\totwidth@=\dimen151
+\lineht@=\dimen152
+\@envbody=\toks21
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-01-22 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count274
+\l__pdf_internal_box=\box53
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
+)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
+Package: balance 1999/02/23 4.3 (PWD)
+\oldvsize=\dimen153
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen154
+\lightrulewidth=\dimen155
+\cmidrulewidth=\dimen156
+\belowrulesep=\dimen157
+\belowbottomsep=\dimen158
+\aboverulesep=\dimen159
+\abovetopsep=\dimen160
+\cmidrulesep=\dimen161
+\cmidrulekern=\dimen162
+\defaultaddspace=\dimen163
+\@cmidla=\count276
+\@cmidlb=\count277
+\@aboverulesep=\dimen164
+\@belowrulesep=\dimen165
+\@thisruleclass=\count278
+\@lastruleclass=\count279
+\@thisrulewidth=\dimen166
+)
+(/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen167
+\ar@mcellbox=\box54
+\extrarowheight=\dimen168
+\NC@list=\toks23
+\extratabsurround=\skip54
+\backup@length=\skip55
+\ar@cellbox=\box55
+)
+\rotheadsize=\dimen169
+\c@nlinenum=\count280
+\TeXr@lab=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip56
+\multirow@cntb=\count281
+\multirow@dima=\skip57
+\bigstrutjot=\dimen170
+)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+\everycr=\toks25
+\minrowclearance=\skip58
+\rownum=\count282
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
+ings
+\@dblbotnum=\count283
+\c@dblbotnumber=\count284
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count285
+\xs_countb=\count286
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
+\FN@temptoken=\toks26
+\footnotemargin=\dimen171
+\@outputbox@depth=\dimen172
+Package footmisc Info: Declaring symbol style bringhurst on input line 696.
+Package footmisc Info: Declaring symbol style chicago on input line 704.
+Package footmisc Info: Declaring symbol style wiley on input line 713.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 744.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 765
+.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 758.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count287
+)
+\@linkdim=\dimen173
+\Hy@linkcounter=\count288
+\Hy@pagecounter=\count289
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count290
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4062.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count291
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen174
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count292
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring ON on input line 6081.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count293
+\c@Item=\count294
+\c@Hfootnote=\count295
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count296
+\c@bookmark@seq@number=\count297
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip59
+)
+(./cas-common.sty
+\l_stm_title_before_dim=\dimen177
+\l_stm_title_after_dim=\dimen178
+\g_ead_int=\count298
+\g_uad_int=\count299
+\@eadauthor=\toks27
+\g_stm_tnote_int=\count300
+\g_stm_fnote_int=\count301
+\g_stm_cor_int=\count302
+\g_stm_au_int=\count303
+\g_stm_aau_int=\count304
+\l_autype_int=\count305
+\l_stm_augroup_before_dim=\dimen179
+\l_stm_augroup_after_dim=\dimen180
+\l_stm_augroup_lskip_tl=\dimen181
+\l_stm_augroup_rskip_tl=\dimen182
+\g_stm_aff_int=\count306
+\g_stm_aff_ext_int=\count307
+\g_stm_aff_int_int=\count308
+\g_stm_fn_aff_ext_int=\count309
+\g_stm_fn_aff_int_int=\count310
+\l_stm_aff_before_dim=\dimen183
+\l_stm_aff_after_dim=\dimen184
+\l_stm_aff_lskip_dim=\dimen185
+\l_stm_aff_rskip_dim=\dimen186
+\g_stm_augr_int=\count311
+\g_stm_aaugr_int=\count312
+
+(/usr/share/texlive/texmf-dist/tex/latex/moreverb/moreverb.sty
+Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks28
+\verbatim@line=\toks29
+\verbatim@in@stream=\read2
+)
+\tab@position=\count313
+\tab@size=\count314
+\listing@line=\count315
+)
+\g_stm_abs_box=\box56
+\casgrabsbox=\box57
+\casauhlbox=\box58
+\g_stm_key_box=\box59
+\g_stm_jtype_int=\count316
+\g_stm_blind_int=\count317
+\c@au=\count318
+\c@cnote=\count319
+\c@tnote=\count320
+\c@fnote=\count321
+\c@aff=\count322
+\g_stm_notes_box=\box60
+\g_stm_front_box=\box61
+\paraindent=\dimen187
+\subparaindent=\dimen188
+\FullWidth=\dimen189
+\l_tbl_width_dim=\dimen190
+\l_tbl_abovecap_skip=\skip60
+\l_tbl_belowcap_skip=\skip61
+\l_tbl_abovetbl_skip=\skip62
+\l_tbl_belowtbl_skip=\skip63
+\l_fig_width_dim=\dimen191
+\cascaptionbox=\box62
+\l_fig_abovecap_skip=\skip64
+\l_fig_belowcap_skip=\skip65
+\l_fig_abovefig_skip=\skip66
+\l_fig_belowfig_skip=\skip67
+
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen192
+\WF@size=\dimen193
+\c@WF@wrappedlines=\count323
+\WF@box=\box63
+\WF@everypar=\toks30
+Package: wrapfig 2003/01/31  v 3.6
+)
+\l_wrap_figwidth_dim=\dimen194
+\l_wrap_fighspace_dim=\dimen195
+\l_wrap_figvspace_dim=\dimen196
+\l_wrap_fighcorr_dim=\dimen197
+\l_wrap_figvcorr_dim=\dimen198
+\l_above_bio_dim=\dimen199
+\l_wrap_figlcorr_int=\count324
+\l_wrap_figlines_int=\count325
+\l_bio_text_box=\box64
+\c@ca_biography_ctr=\count326
+\l_ca_temp_inta=\count327
+\leftMargin=\dimen256
+\@enLab=\toks31
+\@sep=\skip68
+\@@sep=\skip69
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/stix/stix.sty
+Package: stix 2018/04/17 v1.1.3-latex STIX fonts support package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 78.
+)
+Now handling font encoding LS1 ...
+... no UTF-8 mapping file for font encoding LS1
+Now handling font encoding LS2 ...
+... no UTF-8 mapping file for font encoding LS2
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 76.
+LaTeX Font Info:    Encoding `OML' has changed to `LS1' for symbol font
+(Font)              `letters' in the math version `normal' on input line 76.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> LS1/stix/m/it on input line 76.
+LaTeX Font Info:    Encoding `OML' has changed to `LS1' for symbol font
+(Font)              `letters' in the math version `bold' on input line 76.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> LS1/stix/m/it on input line 76.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 77.
+LaTeX Font Info:    Encoding `OT1' has changed to `LS1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 77.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> LS1/stix/m/n on input line 77.
+LaTeX Font Info:    Encoding `OT1' has changed to `LS1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 77.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> LS1/stix/m/n on input line 77.
+\symbold-operators=\mathgroup6
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 79.
+LaTeX Font Info:    Encoding `OMS' has changed to `LS1' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 79.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> LS1/stixscr/m/n on input line 79.
+LaTeX Font Info:    Encoding `OMS' has changed to `LS1' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 79.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> LS1/stixscr/m/n on input line 79.
+\symsymbols2=\mathgroup7
+\symsymbols3=\mathgroup8
+\symsymbols4=\mathgroup9
+\symintegrals=\mathgroup10
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 84.
+LaTeX Font Info:    Encoding `OMX' has changed to `LS2' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 8
+4.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> LS2/stixex/m/n on input line 84.
+LaTeX Font Info:    Encoding `OMX' has changed to `LS2' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 84.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> LS2/stixex/m/n on input line 84.
+\symarrows1=\mathgroup11
+\symarrows2=\mathgroup12
+\symarrows3=\mathgroup13
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  LS1/stix/m/it --> LS1/stix/b/it on input line 88.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  LS1/stix/m/n --> LS1/stix/b/n on input line 89.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  LS1/stixscr/m/n --> LS1/stixscr/b/n on input line 90.
+LaTeX Font Info:    Overwriting symbol font `symbols2' in version `bold'
+(Font)                  LS1/stixfrak/m/n --> LS1/stixfrak/b/n on input line 91.
+
+LaTeX Font Info:    Overwriting symbol font `symbols3' in version `bold'
+(Font)                  LS1/stixbb/m/n --> LS1/stixbb/b/n on input line 92.
+LaTeX Font Info:    Overwriting symbol font `symbols4' in version `bold'
+(Font)                  LS1/stixbb/m/it --> LS1/stixbb/b/it on input line 93.
+LaTeX Font Info:    Overwriting symbol font `integrals' in version `bold'
+(Font)                  LS2/stixcal/m/n --> LS2/stixcal/b/n on input line 94.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  LS2/stixex/m/n --> LS2/stixex/b/n on input line 95.
+LaTeX Font Info:    Overwriting symbol font `arrows1' in version `bold'
+(Font)                  LS1/stixsf/m/n --> LS1/stixsf/b/n on input line 96.
+LaTeX Font Info:    Overwriting symbol font `arrows2' in version `bold'
+(Font)                  LS1/stixsf/m/it --> LS1/stixsf/b/it on input line 97.
+LaTeX Font Info:    Overwriting symbol font `arrows3' in version `bold'
+(Font)                  LS2/stixtt/m/n --> LS2/stixtt/b/n on input line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 106.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 109.
+LaTeX Info: Redefining \yen on input line 456.
+LaTeX Info: Redefining \circledR on input line 458.
+LaTeX Info: Redefining \checkmark on input line 460.
+LaTeX Info: Redefining \maltese on input line 461.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 698.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 699.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 700.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 701.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 702.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 703.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 704.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 705.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 707.
+LaTeX Font Info:    Redeclaring math accent \check on input line 708.
+LaTeX Font Info:    Redeclaring math accent \vec on input line 716.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 728.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 729.
+LaTeX Info: Redefining \vdots on input line 1518.
+LaTeX Info: Redefining \cdots on input line 1522.
+LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 1978.
+LaTeX Info: Redefining \not on input line 2144.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/inconsolata.sty
+Package: inconsolata 2019/05/17 v1.12
+
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks32
+\XKV@tempa@toks=\toks33
+)
+\XKV@depth=\count328
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\zifour@ocount=\count329
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count330
+\Gm@cntv=\count331
+\c@Gm@tempcnt=\count332
+\Gm@bindingoffset=\dimen257
+\Gm@wd@mp=\dimen258
+\Gm@odd@mp=\dimen259
+\Gm@even@mp=\dimen260
+\Gm@layoutwidth=\dimen261
+\Gm@layoutheight=\dimen262
+\Gm@layouthoffset=\dimen263
+\Gm@layoutvoffset=\dimen264
+\Gm@dimlist=\toks34
+))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip70
+\bibsep=\skip71
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count333
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen265
+\TX@old@table=\dimen266
+\TX@old@col=\dimen267
+\TX@target=\dimen268
+\TX@delta=\dimen269
+\TX@cols=\count334
+\TX@ftn=\toks35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count335
+\float@exts=\toks36
+\float@box=\box65
+\@float@everytoks=\toks37
+\@floatcapt=\box66
+)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
+\AP@output=\toks38
+\AP@partial=\box67
+\AP@footins=\box68
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty
+Package: seqsplit 2006/08/07 v0.1 Splitting long sequences (DNA, RNA, proteins,
+ etc.) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+\langwohyphens=\language5
+LaTeX Info: Redefining \_ on input line 43.
+) (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7836.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7852.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 31.
+LaTeX Font Info:    Trying to load font information for T1+stix on input line 7
+8.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/t1stix.fd
+File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
+)
+(./manuscript_with_authors.aux)
+\openout1 = `manuscript_with_authors.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 78.
+LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
+78.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stix.fd
+File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
+)
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 78.
+LaTeX Font Info:    Trying to load font information for LS2+stix on input line 
+78.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stix.fd
+File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
+)
+LaTeX Font Info:    ... okay on input line 78.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count336
+\scratchdimen=\dimen270
+\scratchbox=\box69
+\nofMPsegments=\count337
+\nofMParguments=\count338
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count339
+\MPscratchDim=\dimen271
+\MPnumerator=\count340
+\makeMPintoPDFobject=\count341
+\everyMPtoPDFconversion=\toks40
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Info: Command `\dddot' is already robust on input line 78.
+LaTeX Info: Command `\ddddot' is already robust on input line 78.
+Package hyperref Info: Link coloring ON on input line 78.
+
+(./manuscript_with_authors.out) (./manuscript_with_authors.out)
+\@outlinefile=\write3
+\openout3 = `manuscript_with_authors.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(51.4995pt, 494.50888pt, 51.4995pt)
+* v-part:(T,H,B)=(55.48286pt, 689.4103pt, 51.784pt)
+* \paperwidth=597.50787pt
+* \paperheight=796.67715pt
+* \textwidth=494.50888pt
+* \textheight=689.4103pt
+* \oddsidemargin=-20.7705pt
+* \evensidemargin=-20.7705pt
+* \topmargin=-40.78712pt
+* \headheight=12.0pt
+* \headsep=12.0pt
+* \topskip=10.0pt
+* \footskip=12.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=18.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 78
+.
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/m/scit' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/b/it' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/b/scit' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/bx/n' in size <10> not available
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/bx/it' in size <10> not available
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/bx/scit' in size <10> not available
+(Font)              Font shape `T1/zi4/b/scit' tried instead on input line 78.
+LaTeX Font Info:    Font shape `T1/zi4/b/scit' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/sb/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/sb/it' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/c/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/c/it' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/l/n' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 78.
+
+LaTeX Font Info:    Font shape `T1/zi4/l/it' will be
+(Font)              scaled to size 8.50006pt on input line 78.
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 78.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 78.
+
+\verbatim@out=\write4
+\openout4 = `manuscript_with_authors.abs'.
+
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
+ne 111.
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
+File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
+e 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
+File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
+
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
+ine 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
+File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
+e 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
+File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
+
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
+ne 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
+File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
+ons
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
+e 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
+File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
+
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
+e 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
+File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
+
+)
+Overfull \hbox (123.62721pt too wide) detected at line 111
+[]
+ []
+
+(./manuscript_with_authors.abs
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 6.80005pt on input line 1.
+)
+
+Package hyperref Warning: Ignoring empty anchor on input line 111.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 111.
+
+(../../paper/sections/01_introduction.tex
+Underfull \hbox (badness 1168) in paragraph at lines 8--9
+\T1/stix/m/n/10 i-nantly single-layer (feature-engineered pipelines, mono-
+ []
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 8--9
+\T1/stix/m/n/10 et al.[][], [][]2023[][]]. (ii) File-metadata work re-mains nar
+-rowly
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 8--9
+\T1/stix/m/n/10 graph re-search emits alerts but rarely cou-ples them to
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/
+dvips/inconsolata/i4-t1-0.enc}
+
+
+]) (../../paper/sections/02_literature_review.tex
+Underfull \hbox (badness 1242) in paragraph at lines 4--5
+[]\T1/stix/m/n/10 Earliest work on insider-threat de-tec-tion framed the
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 4--5
+\T1/stix/m/n/10 strat-ing that vis-i-ble me-dia arte-facts alone can dis-crim-i
+-
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 4--5
+\T1/stix/m/n/10 was re-stricted to a small set of doc-u-ment for-mats; (ii)
+ []
+
+[2]
+Underfull \hbox (badness 1270) in paragraph at lines 12--13
+\T1/stix/m/n/10 (nar-row for-mat cov-er-age of me-dia foren-sics, sep-a-ra-tion
+
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 12--13
+\T1/stix/m/n/10 W3C-PROV-grounded, Merkle-chained, Ed25519-signed
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
+4.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 KRYSTAL knowledge-graph frame-work for
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 43--43
+\T1/cmss/m/n/8 tactical-attack dis-cov-ery in au-dit data us-ing
+ []
+
+
+Underfull \hbox (badness 1997) in paragraph at lines 43--43
+\T1/cmss/m/n/8 advanced-persistent-threat or-gan-i-sa-tion at-tri-bu-
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 Single-layer ar-chi-tec-ture; ad-ver-sar-ial ro-bust-ness
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 43--43
+\T1/cmss/m/n/8 no cross-format meta-data fu-sion; no forensic-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 KGRAG provenance-based cyber-threat-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 CTI-oriented; no con-tin-u-ous internal-detection
+ []
+
+
+Underfull \hbox (badness 7326) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 PROVCON observability-to-provenance frame-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 Digital foren-sic readi-ness frame-work un-der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 SaaS-cloud de-ploy-ment only; no on-
+ []
+
+
+Underfull \hbox (badness 6675) in paragraph at lines 43--43
+[]|\T1/cmss/m/n/8 Formalised ISO/IEC 27043 forensic-readiness
+ []
+
+) (../../paper/sections/03_threat_model.tex
+Underfull \hbox (badness 1057) in paragraph at lines 26--26
+\T1/cmss/m/n/8 nar-ios, trained in-side
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 In-distribution la-tent
+ []
+
+
+Underfull \hbox (badness 6641) in paragraph at lines 26--26
+\LS1/stix/m/n/8 ù$ \T1/cmss/m/n/8 141,657 user-day
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Evasion (fea-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Benign-neighbour
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+\T1/cmss/m/n/8 cloning of fea-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Evasion (arte-fact
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Author/revision-id
+ []
+
+
+Overfull \hbox (9.18082pt too wide) in paragraph at lines 26--26
+\T1/cmss/m/n/8 OOXML/DWG/EML/git| 
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Attacker vec-tor ü3.2
+ []
+
+
+Underfull \hbox (badness 4859) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 Business hours, low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]|\T1/cmss/m/n/8 ü6.2 (ROC-AUC
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]|\T1/cmss/bx/n/8 Counter-Layer in
+ []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 L3.5 (single-layer fea-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 Feature nov-elty
+ []
+
+
+Underfull \hbox (badness 4168) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 L1 au-thor-ship + L2
+ []
+
+
+Overfull \hbox (4.10326pt too wide) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 OOXML/DWG/EML/git
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 L2 \T1/zi4/m/n/8 SAME_-FINGERPRINT_-AS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 Identity-conditioned
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 Clean user cre-den-tials
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 49--49
+[]|\T1/cmss/m/n/8 Business hours, stolen
+ []
+
+[3]
+Underfull \hbox (badness 2495) in paragraph at lines 78--78
+[]|\T1/cmss/m/n/8 Layered chain-of-custody stor-age, 4.8 GB
+ []
+
+) (../../paper/sections/04_architecture.tex
+Underfull \hbox (badness 1014) in paragraph at lines 83--1
+\T1/stix/m/n/10 AUC, F1 @ 0.5% FPR (the precision-critical op-er-at-ing
+ []
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 83--1
+\T1/stix/m/n/10 whitelist (\T1/zi4/l/it/10 access_-novelty_-score\T1/stix/m/n/1
+0 , \T1/zi4/l/it/10 meta-data_-stripped\T1/stix/m/n/10 , \T1/zi4/l/it/10 off_-
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 83--1
+\T1/zi4/l/it/10 hours_-multiplier\T1/stix/m/n/10 , \T1/zi4/l/it/10 iden-tity_-p
+roxy\T1/stix/m/n/10 , \T1/zi4/l/it/10 copy_-to_-removable\T1/stix/m/n/10 , \T1/
+zi4/l/it/10 n_-
+ []
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 8--9
+\T1/zi4/l/it/10 Mod-i-fiedBy\T1/stix/m/n/10 , \T1/zi4/l/it/10 re-vi-sion_-id\T1
+/stix/m/n/10 , \T1/zi4/l/it/10 rsid_-originator\T1/stix/m/n/10 , \T1/zi4/l/it/1
+0 rsid_-revisions\T1/stix/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 2426) in paragraph at lines 8--9
+\T1/zi4/l/it/10 par-ent_-rsid_-chain\T1/stix/m/n/10 , \T1/zi4/l/it/10 to-tal_-e
+dit_-count\T1/stix/m/n/10 , \T1/zi4/l/it/10 last_-modification_-
+ []
+
+
+Overfull \hbox (2.00969pt too wide) in paragraph at lines 8--9
+\T1/zi4/l/it/10 ac-cess_-hour\T1/stix/m/n/10 , \T1/zi4/l/it/10 revshare\T1/stix
+/m/n/10 , \T1/zi4/l/it/10 comm_-share_-by_-hour\T1/stix/m/n/10 , \T1/zi4/l/it/1
+0 write_-open_-share\T1/stix/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 8--9
+\T1/stix/m/n/10 cus-tody end-to-end. Fig-ure [][]1[][] il-lus-trates Layer-1 fo
+r-mat
+ []
+
+<figures/fig11_l1_coverage.pdf, id=346, 433.62pt x 274.626pt>
+File: figures/fig11_l1_coverage.pdf Graphic file (type pdf)
+<use figures/fig11_l1_coverage.pdf>
+Package pdftex.def Info: figures/fig11_l1_coverage.pdf  used on input line 12.
+(pdftex.def)             Requested size: 238.25444pt x 150.8939pt.
+
+Underfull \hbox (badness 1496) in paragraph at lines 19--20
+\T1/stix/m/n/10 with a fixed entity-relational schema (\T1/zi4/l/it/10 User\T1/
+stix/m/n/10 , \T1/zi4/l/it/10 File\T1/stix/m/n/10 , \T1/zi4/l/it/10 Ar-ti-
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 19--20
+\T1/stix/m/n/10 Each node car-ries at-tribute prove-nance sat-is-fy-ing W3C
+ []
+
+<figures/fig12_rule_profile.pdf, id=358, 469.755pt x 274.626pt>
+File: figures/fig12_rule_profile.pdf Graphic file (type pdf)
+<use figures/fig12_rule_profile.pdf>
+Package pdftex.def Info: figures/fig12_rule_profile.pdf  used on input line 27.
+
+(pdftex.def)             Requested size: 238.25444pt x 139.28636pt.
+[4{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.39 
+      <./figures/fig11_l1_coverage.pdf>])
+(../../paper/sections/05_implementation.tex
+Underfull \hbox (badness 1377) in paragraph at lines 35--36
+\T1/stix/m/n/10 and DOCX ex-tract \T1/zi4/l/it/10 re-vi-sion_-id\T1/stix/m/n/10
+ , \T1/zi4/l/it/10 rsid_-originator\T1/stix/m/n/10 , \T1/zi4/l/it/10 rsid_-
+ []
+
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.48 
+      <./figures/fig12_rule_profile.pdf>])
+(../../paper/sections/06_evaluation.tex
+Overfull \hbox (14.83897pt too wide) in paragraph at lines 51--1
+\T1/zi4/l/it/10 ac-cess_-novelty_-score\T1/stix/m/n/10 , \T1/zi4/l/it/10 meta-d
+ata_-stripped\T1/stix/m/n/10 , \T1/zi4/l/it/10 off_-hours_-multiplier\T1/stix/m
+/n/10 ,
+ []
+
+
+Overfull \hbox (12.25978pt too wide) in paragraph at lines 51--1
+\T1/zi4/l/it/10 identity_-proxy\T1/stix/m/n/10 , \T1/zi4/l/it/10 copy_-to_-remo
+vable\T1/stix/m/n/10 , \T1/zi4/l/it/10 n_-file_-accesses\T1/stix/m/n/10 , \T1/z
+i4/l/it/10 outbound_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/m/n/8 Random /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/m/n/8 Imbalance-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/m/n/8 Augmentation-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/bx/n/8 60-30-10
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/bx/n/8 D5 OOD
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/cmss/bx/n/8 Hold-out
+ []
+
+<figures/fig2_roc_d3.pdf, id=602, 397.485pt x 289.08pt>
+File: figures/fig2_roc_d3.pdf Graphic file (type pdf)
+<use figures/fig2_roc_d3.pdf>
+Package pdftex.def Info: figures/fig2_roc_d3.pdf  used on input line 36.
+(pdftex.def)             Requested size: 238.25444pt x 173.28171pt.
+<figures/fig3_confusion_d3.pdf, id=603, 325.215pt x 274.626pt>
+File: figures/fig3_confusion_d3.pdf Graphic file (type pdf)
+<use figures/fig3_confusion_d3.pdf>
+Package pdftex.def Info: figures/fig3_confusion_d3.pdf  used on input line 43.
+(pdftex.def)             Requested size: 238.25444pt x 201.19606pt.
+
+Underfull \hbox (badness 1205) in paragraph at lines 50--51
+\T1/stix/m/n/10 that topol-ogy con-tributes a smaller but non-zero in-cre-
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 50--51
+\T1/stix/m/n/10 multi-layer fu-sion (drop L3.5): re-verts to a single-layer
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 50--51
+\T1/stix/m/n/10 the top-5 SHAP fea-ture im-por-tances against the op-er-a-
+ []
+
+[6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.51 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.51 
+      <./figures/fig2_roc_d3.pdf> <./figures/fig3_confusion_d3.pdf>]
+Overfull \hbox (5.69531pt too wide) in paragraph at lines 69--69
+ []|\T1/cmss/bx/n/8 F1@0.5%FPR| 
+ []
+
+<figures/fig6_shap_whitelist.pdf, id=725, 397.485pt x 289.08pt>
+File: figures/fig6_shap_whitelist.pdf Graphic file (type pdf)
+<use figures/fig6_shap_whitelist.pdf>
+Package pdftex.def Info: figures/fig6_shap_whitelist.pdf  used on input line 74
+.
+(pdftex.def)             Requested size: 238.25444pt x 173.28171pt.
+
+Overfull \hbox (8.1855pt too wide) in paragraph at lines 81--82
+[]\T1/stix/m/n/10 Across the ab-la-tion grid in Sec-tion [][]6[][].3 the Pareto
+ precision-
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 81--82
+\T1/stix/m/n/10 The Pareto fron-tier also iden-ti-fies the no-L3.5 (single-
+ []
+
+<figures/fig4_pareto_ablation.pdf, id=728, 397.485pt x 289.08pt>
+File: figures/fig4_pareto_ablation.pdf Graphic file (type pdf)
+<use figures/fig4_pareto_ablation.pdf>
+Package pdftex.def Info: figures/fig4_pareto_ablation.pdf  used on input line 8
+5.
+(pdftex.def)             Requested size: 238.25444pt x 173.28171pt.
+
+Overfull \hbox (0.78964pt too wide) in paragraph at lines 92--93
+\T1/stix/m/n/10 single-layer ROC-AUC 0.7363. The ab-so-lute plus is $\LS1/stix/
+m/n/10 +0\LS1/stix/m/it/10 :\LS1/stix/m/n/10 2209$
+ []
+
+<figures/fig5_occcp_rescue.pdf, id=737, 397.485pt x 289.08pt>
+File: figures/fig5_occcp_rescue.pdf Graphic file (type pdf)
+<use figures/fig5_occcp_rescue.pdf>
+Package pdftex.def Info: figures/fig5_occcp_rescue.pdf  used on input line 115.
+
+(pdftex.def)             Requested size: 238.25444pt x 173.28171pt.
+<figures/fig10_robustness_bound.pdf, id=738, 397.485pt x 274.626pt>
+File: figures/fig10_robustness_bound.pdf Graphic file (type pdf)
+<use figures/fig10_robustness_bound.pdf>
+Package pdftex.def Info: figures/fig10_robustness_bound.pdf  used on input line
+ 122.
+(pdftex.def)             Requested size: 238.25444pt x 164.61763pt.
+
+Underfull \hbox (badness 1237) in paragraph at lines 129--130
+\T1/stix/m/n/10 qui-si-tion, Preser-va-tion, Anal-y-sis, Pre-sen-ta-tion, Chain
+ of
+ []
+
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.130 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.130 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.130 
+       <./figures/fig6_shap_whitelist.pdf> <./figures/fig4_pareto_ablation.pdf>
+ <./figures/fig5_occcp_rescue.pdf>]
+<figures/fig9_iso27043_radar.pdf, id=925, 325.215pt x 325.215pt>
+File: figures/fig9_iso27043_radar.pdf Graphic file (type pdf)
+<use figures/fig9_iso27043_radar.pdf>
+Package pdftex.def Info: figures/fig9_iso27043_radar.pdf  used on input line 13
+3.
+(pdftex.def)             Requested size: 238.25444pt x 238.2585pt.
+<figures/fig7_wallclock.pdf, id=929, 397.485pt x 274.626pt>
+File: figures/fig7_wallclock.pdf Graphic file (type pdf)
+<use figures/fig7_wallclock.pdf>
+Package pdftex.def Info: figures/fig7_wallclock.pdf  used on input line 166.
+(pdftex.def)             Requested size: 238.25444pt x 164.61763pt.
+<figures/fig8_storage.pdf, id=930, 397.485pt x 274.626pt>
+File: figures/fig8_storage.pdf Graphic file (type pdf)
+<use figures/fig8_storage.pdf>
+Package pdftex.def Info: figures/fig8_storage.pdf  used on input line 173.
+(pdftex.def)             Requested size: 238.25444pt x 164.61763pt.
+) (../../paper/sections/07_discussion.tex
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.5 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.5 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.5 
+    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.5 
+     <./figures/fig10_robustness_bound.pdf> <./figures/fig9_iso27043_radar.pdf>
+ <./figures/fig7_wallclock.pdf> <./figures/fig8_storage.pdf>]
+Underfull \hbox (badness 1838) in paragraph at lines 8--9
+[]\T1/stix/m/n/10 Third, the 100% ISO/IEC 27043 at-tribute cov-er-age
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 10--11
+[]\T1/stix/m/n/10 Practically, the de-ploy-ment bud-get re-ported in Sec-
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 12--13
+\T1/stix/m/n/10 op-er-a-tional rather than artefact-driven [[][]Li et al.[][], 
+[][]2021[][],
+ []
+
+) (../../paper/sections/08_limitations.tex
+Underfull \hbox (badness 1931) in paragraph at lines 8--9
+\T1/stix/m/n/10 Fifth, industrial-scale ten-ant val-i-da-tion (multi-thousand-
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 10--11
+\T1/stix/m/n/10 in-vari-ant. The top-5 SHAP feature-importance whitelist
+ []
+
+
+Overfull \hbox (18.16898pt too wide) in paragraph at lines 10--11
+\T1/stix/m/n/10 (\T1/zi4/l/it/10 access_-novelty_-score\T1/stix/m/n/10 , \T1/zi
+4/l/it/10 meta-data_-stripped\T1/stix/m/n/10 , \T1/zi4/l/it/10 off_-hours_-mult
+iplier\T1/stix/m/n/10 ,
+ []
+
+
+Overfull \hbox (12.25978pt too wide) in paragraph at lines 10--11
+\T1/zi4/l/it/10 identity_-proxy\T1/stix/m/n/10 , \T1/zi4/l/it/10 copy_-to_-remo
+vable\T1/stix/m/n/10 , \T1/zi4/l/it/10 n_-file_-accesses\T1/stix/m/n/10 , \T1/z
+i4/l/it/10 outbound_-
+ []
+
+[9]) (../../paper/sections/09_conclusion.tex [10])
+Overfull \hbox (1.9155pt too wide) in paragraph at lines 28--126
+\T1/stix/m/n/10 Se-cu-rity Op-er-a-tions an-a-lysts who val-i-dated the D5 Synt
+hetic-
+ []
+
+(./manuscript_with_authors.bbl [11]) [12
+
+] [13
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    ] [14
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    ] [15
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    ] [16
+pdfTeX warning (ext4): destination with the same identifier (name{table.9}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.133 \end{document}
+                    ] (./manuscript_with_authors.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `manuscript_with_authors.out' has not changed
+.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 19048 strings out of 476182
+ 303920 string characters out of 5795595
+ 2011975 words of memory out of 5000000
+ 40598 multiletter control sequences out of 15000+600000
+ 648010 words of font info for 158 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 90i,12n,93p,2139b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
+r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfsx0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0900.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/stix/stix-mathtt.pfb>
+Output written on manuscript_with_authors.pdf (16 pages, 509425 bytes).
+PDF statistics:
+ 1370 PDF objects out of 1440 (max. 8388607)
+ 742 compressed objects within 8 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+
