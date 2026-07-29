@@ -65,3 +65,22 @@ infra/neo4j/data/
 infra/neo4j/logs/
 infra/neo4j/import/
 infra/neo4j/plugins/
+
+# LaTeX build artifacts & temporary files
+*.aux
+*.bbl
+*.blg
+*.out
+*.abs
+*.log
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+paper/els-cas.zip
+
+# Submission internal LaTeX compilation directory (keeps submission/*.pdf and submission/*.docx clean)
+submission/src/
+
+# Agents & workspace AI configs
+.agents/
