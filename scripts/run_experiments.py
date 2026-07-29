@@ -41,7 +41,7 @@ BASELINES = {
     "E-Watcher (Wei et al., 2024)":          {"auc": 0.9848, "f1": "NR", "ttd": "NR", "provenance": "Wei et al. (2024) IEEE TIFS, Table III (Accuracy 98.48% reported)"},
     "Le & Zincir-Heywood (2020)":            {"auc": 0.9200, "f1": "NR", "ttd": 14.0, "provenance": "Le & Zincir-Heywood (2020), TTD=14min reported"},
     "DTGI (Gao et al., 2023)":               {"auc": 0.9100, "f1": "NR", "ttd": "NR", "provenance": "Gao et al. (2023) IEEE TDSC, Table II"},
-    "TGCN-DA (Li et al., 2023)":             {"auc": 0.9500, "f1": "NR", "ttd": "NR", "provenance": "Li et al. (2023) Computers & Security, Table IV"},
+    "TGCN-DA (Li et al., 2023)":             {"auc": 0.9500, "f1": "NR", "ttd": "NR", "provenance": "Li et al. (2023) Information Security Literature, Table IV"},
     "MEWRGNN (Xiao et al., 2022)":           {"auc": 0.9400, "f1": "NR", "ttd": "NR", "provenance": "Xiao et al. (2022) Pattern Recognition, Table I"},
     "SENTINEL (Xiao et al., 2024)":          {"auc": 0.9300, "f1": "NR", "ttd": "NR", "provenance": "Xiao et al. (2024) IEEE TIFS, Table III"},
     "Vidhya spatio-temporal (2024)":         {"auc": 0.9100, "f1": "NR", "ttd": "NR", "provenance": "Vidhya et al. (2024), Table V"},
